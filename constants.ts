@@ -50,10 +50,10 @@ export const HEALTH_STATS: HealthStat[] = [
 ];
 
 export const PORTFOLIO: PortfolioItem[] = [
-  { id: '1', imageUrl: 'https://picsum.photos/id/111/600/600', title: 'Porsche 911 - Vitrificação', instagramLink: '#' },
-  { id: '2', imageUrl: 'https://picsum.photos/id/133/600/600', title: 'Mustang GT - Polimento', instagramLink: '#' },
-  { id: '3', imageUrl: 'https://picsum.photos/id/183/600/600', title: 'BMW M3 - Higienização', instagramLink: '#' },
-  { id: '4', imageUrl: 'https://picsum.photos/id/65/600/600', title: 'Audi RS6 - Full Detail', instagramLink: '#' },
-  { id: '5', imageUrl: 'https://picsum.photos/id/146/600/600', title: 'Mercedes AMG - Interior', instagramLink: '#' },
-  { id: '6', imageUrl: 'https://picsum.photos/id/234/600/600', title: 'Land Rover - Motor', instagramLink: '#' },
+  { id: '1', imageUrl: '/images/portfolio/porsche/gt3 (1).JPG', title: 'Porsche GT3 - Vitrificação', instagramLink: '#' },
+  { id: '2', imageUrl: '/images/portfolio/mustang/mustang-polimento.JPG', title: 'Mustang GT - Polimento', instagramLink: '#' },
+  { id: '3', imageUrl: '/images/portfolio/bmw/bmw (1).JPG', title: 'BMW - Higienização', instagramLink: '#' },
+  { id: '4', imageUrl: '/images/portfolio/gli/gli (1).JPG', title: 'VW Jetta GLI - Full Detail', instagramLink: '#' },
+  { id: '5', imageUrl: '/images/portfolio/bmw2/bmw2 (1).JPG', title: 'BMW Série 3 - Interior', instagramLink: '#' },
+  { id: '6', imageUrl: '/images/portfolio/porsche/gt3 (2).JPG', title: 'Porsche GT3 - Detalhe', instagramLink: '#' },
 ];

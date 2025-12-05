@@ -13,15 +13,15 @@ export const Hero: React.FC = () => {
   };
 
   return (
-    <section className="relative h-screen min-h-[800px] flex items-center overflow-hidden">
+    <section className="relative h-screen min-h-[600px] flex items-center overflow-hidden bg-black">
       <div className="absolute inset-0 z-0">
         <img 
-          src="https://images.unsplash.com/photo-1601362840469-51e4d8d58785?q=80&w=2070&auto=format&fit=crop" 
+          src="/images/hero/hero-bg.JPG" 
           alt="Luxury Car Detail" 
-          className="w-full h-full object-cover object-center"
+          className="w-full h-[85%] object-cover object-[25%_center] blur-[1px]"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-transparent"></div>
-        <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-black via-black/40 to-transparent"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-black from-[15%] via-black/20 via-[40%] to-transparent"></div>
       </div>
 
       <div className="container mx-auto px-6 relative z-10 pt-20">

@@ -5,8 +5,8 @@ export const ComparisonSlider: React.FC = () => {
   const [sliderPosition, setSliderPosition] = useState(50);
 
 
-  const afterImage = "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=1920&auto=format&fit=crop";
-  const beforeImage = "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=1920&auto=format&fit=crop&blur=10&sat=-100";
+  const afterImage = "/images/comparison/after.png";
+  const beforeImage = "/images/comparison/before.JPG";
 
   const handleSliderChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSliderPosition(Number(e.target.value));

@@ -1,7 +1,7 @@
 # FilmTech Luxury
 ## Estética Automotiva Premium
 
-![Banner](https://images.unsplash.com/photo-1601362840469-51e4d8d58785?q=80&w=2070&auto=format&fit=crop)
+![Banner](public/images/hero/hero-bg.JPG)
 
 > **Perfeição em cada detalhe.** O padrão ouro em cuidado automotivo, materializado em uma experiência digital imersiva.
 
