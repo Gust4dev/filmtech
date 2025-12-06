@@ -13,22 +13,21 @@ export const ComparisonSlider: React.FC = () => {
   };
 
   return (
-    <section className="py-24 bg-neutral-900 overflow-hidden">
+    <section className="py-24 bg-white overflow-hidden">
       <div className="container mx-auto px-6">
         <div className="flex flex-col md:flex-row items-center gap-12">
           
           <div className="w-full md:w-1/3 space-y-6">
             <FadeIn direction="right">
-              <h2 className="text-3xl font-bold text-white brand-font">TRANSFORMAÇÃO REAL</h2>
+              <h2 className="text-3xl font-bold text-dark-lead brand-font uppercase tracking-widest">O PROCESSO FILMTECH</h2>
               <div className="w-20 h-1 bg-red-600"></div>
-              <p className="text-gray-400">
-                Não é mágica, é técnica. Veja a diferença que um tratamento profissional pode fazer na pintura do seu veículo. 
-                Recuperamos o brilho, profundidade e proteção.
+              <p className="text-stone-600">
+                Cada veículo é tratado como um projeto único. Desmonte técnico, limpeza cirúrgica e aplicação perfeita.
               </p>
-              <div className="flex items-center gap-4 text-sm font-bold tracking-widest text-neutral-500 mt-4">
-                <span>ANTES</span>
-                <div className="flex-1 h-px bg-neutral-700"></div>
-                <span className="text-red-500">DEPOIS</span>
+              <div className="flex items-center gap-4 text-xs font-bold tracking-widest text-stone-500 mt-4 uppercase">
+                <span>Preparação e Desmontagem Técnica</span>
+                <div className="flex-1 h-px bg-stone-300"></div>
+                <span className="text-red-600">Resultado Final Impecável</span>
               </div>
             </FadeIn>
           </div>

@@ -8,9 +8,11 @@ export const Footer: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
           
           <div className="col-span-1 md:col-span-2">
-            <h2 className="text-3xl font-black brand-font italic text-white mb-6">FilmTech Luxury</h2>
+            <h2 className="text-3xl font-black brand-font text-white mb-6 uppercase tracking-widest">FilmTech Luxury</h2>
             <p className="text-gray-400 max-w-sm mb-6">
               Estética automotiva de alta performance. Cuidamos do seu patrimônio com a paixão e a precisão que ele merece.
+              <br/><br/>
+              <span className="text-stone-500 text-xs uppercase tracking-wider font-bold">Materiais de certificação internacional.</span>
             </p>
             <div className="flex gap-4">
                <div className="w-10 h-10 rounded bg-neutral-900 flex items-center justify-center text-white hover:bg-red-600 transition-colors cursor-pointer">
@@ -35,7 +37,7 @@ export const Footer: React.FC = () => {
               </li>
               <li className="flex items-center gap-3 text-gray-400 text-sm">
                 <Mail className="w-5 h-5 text-red-600 shrink-0" />
-                <span>contato@velocita.com.br</span>
+                <span>contato@filmtech.com.br</span>
               </li>
             </ul>
           </div>
@@ -64,7 +66,7 @@ export const Footer: React.FC = () => {
 
         <div className="border-t border-neutral-900 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-neutral-600 text-sm">
-            © {new Date().getFullYear()} Velocitá Estética Automotiva. Todos os direitos reservados.
+            © {new Date().getFullYear()} FilmTech Luxury. Todos os direitos reservados.
           </p>
           <div className="flex gap-6 text-neutral-600 text-sm">
             <a href="#" className="hover:text-white">Termos</a>

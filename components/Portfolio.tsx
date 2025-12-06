@@ -5,12 +5,12 @@ import { FadeIn } from './FadeIn';
 
 export const Portfolio: React.FC = () => {
   return (
-    <section id="portfolio" className="py-24 bg-black overflow-hidden">
+    <section id="portfolio" className="py-24 bg-white overflow-hidden">
       <div className="container mx-auto px-6">
         <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
           <FadeIn>
-            <h2 className="text-4xl font-bold text-white brand-font italic">RESULTADOS <span className="text-red-600">FILMTECH</span></h2>
-            <p className="text-gray-400 mt-2">Siga nosso trabalho diariamente.</p>
+            <h2 className="text-4xl font-bold text-dark-lead brand-font uppercase tracking-widest">RESULTADOS <span className="text-red-600">FILMTECH</span></h2>
+            <p className="text-stone-600 mt-2">Siga nosso trabalho diariamente.</p>
           </FadeIn>
           
           <FadeIn direction="left">
@@ -18,7 +18,7 @@ export const Portfolio: React.FC = () => {
               href="https://instagram.com" 
               target="_blank" 
               rel="noreferrer"
-              className="px-6 py-3 border border-neutral-700 rounded-full text-white text-sm font-bold hover:bg-neutral-800 hover:border-white transition-colors flex items-center gap-2"
+              className="px-6 py-3 border-2 border-stone-200 rounded-full text-dark-lead text-sm font-bold hover:bg-stone-900 hover:text-white hover:border-stone-900 transition-all flex items-center gap-2"
             >
               <Instagram size={18} /> @velocita_estetica
             </a>
@@ -41,9 +41,9 @@ export const Portfolio: React.FC = () => {
                 />
                 
                 <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center p-6 text-center">
-                  <Instagram className="text-red-600 mb-2 w-8 h-8" />
+                  <Instagram className="text-white mb-2 w-8 h-8" />
                   <h4 className="text-white font-bold text-lg">{item.title}</h4>
-                  <span className="text-gray-300 text-xs mt-2 uppercase tracking-widest">Ver no Instagram</span>
+                  <span className="text-white/80 text-xs mt-2 uppercase tracking-widest">Ver no Instagram</span>
                 </div>
               </a>
             </FadeIn>

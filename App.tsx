@@ -3,9 +3,11 @@ import { LoadingScreen } from './components/LoadingScreen';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { Services } from './components/Services';
+import { ExclusiveProjectCta } from './components/ExclusiveProjectCta';
 import { ComparisonSlider } from './components/ComparisonSlider';
-import { HealthStats } from './components/HealthStats';
+import { ProtectionEngineering } from './components/ProtectionEngineering';
 import { Portfolio } from './components/Portfolio';
+import { AuthorityStrip } from './components/AuthorityStrip';
 import { Footer } from './components/Footer';
 import { FloatingWhatsapp } from './components/FloatingWhatsapp';
 
@@ -17,14 +19,16 @@ const App: React.FC = () => {
   }
 
   return (
-    <div className="min-h-screen bg-black text-white selection:bg-red-600 selection:text-white">
+    <div className="min-h-screen bg-white text-neutral-900 selection:bg-red-600 selection:text-white">
       <Navbar />
       <main>
         <Hero />
         <Services />
+        <ExclusiveProjectCta />
         <ComparisonSlider />
-        <HealthStats />
+        <ProtectionEngineering />
         <Portfolio />
+        <AuthorityStrip />
       </main>
       <Footer />
       <FloatingWhatsapp />
