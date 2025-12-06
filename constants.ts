@@ -3,6 +3,8 @@ import { ServiceItem, PortfolioItem, HealthStat } from './types';
 export const BRAND_NAME = "FilmTech Luxury";
 export const PHONE_NUMBER = "556292425852";
 export const INSTAGRAM_URL = "https://www.instagram.com/filmtech_luxury/";
+export const TIKTOK_URL = "https://www.tiktok.com/@gustavofilmtech?_r=1&_t=ZS-91MdmSHOued";
+export const YOUTUBE_URL = "https://www.youtube.com/@filmtechprobrasil";
 
 export const SERVICES: ServiceItem[] = [
   {

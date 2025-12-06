@@ -1,76 +1,147 @@
 import React from 'react';
-import { MapPin, Phone, Mail, Clock } from 'lucide-react';
+import { MapPin, Phone, Clock, Youtube, Instagram, Code, GraduationCap } from 'lucide-react';
+import { INSTAGRAM_URL, YOUTUBE_URL, TIKTOK_URL } from '../constants';
 
 export const Footer: React.FC = () => {
   return (
-    <footer id="footer" className="bg-neutral-950 border-t border-neutral-900 pt-20 pb-10">
+    <footer id="footer" className="bg-[#0a0a0a] relative z-50 overflow-hidden pt-20 pb-10">
       <div className="container mx-auto px-6">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-16">
           
-          <div className="col-span-1 md:col-span-2">
-            <h2 className="text-3xl font-black brand-font text-white mb-6 uppercase tracking-widest">FilmTech Luxury</h2>
-            <p className="text-gray-400 max-w-sm mb-6">
-              Estética automotiva de alta performance. Cuidamos do seu patrimônio com a paixão e a precisão que ele merece.
+          {/* Brand Column (3 cols) */}
+          <div className="lg:col-span-3">
+            <h2 className="text-3xl font-black brand-font text-white mb-6 uppercase tracking-widest">
+              <span className="text-red-600">F</span>ilmTech Luxury
+            </h2>
+            <p className="text-gray-400 text-sm mb-6 leading-relaxed">
+              Estética automotiva de alta performance.<br/>
+              Cuidamos do seu patrimônio com a paixão e a precisão que ele merece.
               <br/><br/>
               <span className="text-stone-500 text-xs uppercase tracking-wider font-bold">Materiais de certificação internacional.</span>
             </p>
             <div className="flex gap-4">
-               <div className="w-10 h-10 rounded bg-neutral-900 flex items-center justify-center text-white hover:bg-red-600 transition-colors cursor-pointer">
-                 <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/></svg>
-               </div>
-               <div className="w-10 h-10 rounded bg-neutral-900 flex items-center justify-center text-white hover:bg-red-600 transition-colors cursor-pointer">
-                 <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-               </div>
+               {/* Instagram */}
+               <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded bg-neutral-900 flex items-center justify-center text-white hover:bg-red-600 transition-colors cursor-pointer">
+                 <Instagram size={20} />
+               </a>
+               
+               {/* YouTube */}
+               <a href={YOUTUBE_URL} target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded bg-neutral-900 flex items-center justify-center text-white hover:bg-red-600 transition-colors cursor-pointer">
+                 <Youtube size={20} />
+               </a>
+
+               {/* TikTok */}
+               <a href={TIKTOK_URL} target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded bg-neutral-900 flex items-center justify-center text-white hover:bg-red-600 transition-colors cursor-pointer">
+                 <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
+                 </svg>
+               </a>
             </div>
           </div>
 
-          <div>
-            <h3 className="text-white font-bold mb-6">CONTATO</h3>
-            <ul className="space-y-4">
-              <li className="flex items-start gap-3 text-gray-400 text-sm">
-                <MapPin className="w-5 h-5 text-red-600 shrink-0" />
-                <span>Av. das Nações Unidas, 1000<br/>São Paulo - SP</span>
-              </li>
-              <li className="flex items-center gap-3 text-gray-400 text-sm">
-                <Phone className="w-5 h-5 text-red-600 shrink-0" />
-                <span>(62) 9242-5852</span>
-              </li>
-              <li className="flex items-center gap-3 text-gray-400 text-sm">
-                <Mail className="w-5 h-5 text-red-600 shrink-0" />
-                <span>contato@filmtech.com.br</span>
-              </li>
-            </ul>
+          {/* Contact & Hours Column (4 cols) - Reduced to 4 to give space to Map */}
+          <div className="lg:col-span-4 lg:pl-16 lg:border-l lg:border-neutral-800">
+            <div className="mb-12">
+              <h3 className="text-white font-bold mb-6">
+                CONTATO
+              </h3>
+              <ul className="space-y-4">
+                <li className="flex items-start gap-3 text-gray-400 text-sm leading-relaxed">
+                  <MapPin className="w-5 h-5 text-red-600 shrink-0" />
+                  <span>R. S-1, qd 139 - lt 21 - St. Bela Vista<br/>Goiânia - GO, 74823-310</span>
+                </li>
+                <li className="flex items-center gap-3 text-gray-400 text-sm">
+                  <Phone className="w-4 h-4 text-red-600 shrink-0" />
+                  <span className="text-white font-medium">(62) 9242-5852</span>
+                </li>
+                <li className="flex items-center gap-3">
+                  <GraduationCap className="w-4 h-4 text-red-600 shrink-0" />
+                  <a 
+                    href="https://filmtechexperience.com.br/filmtech-luxury-experience/"
+                    target="_blank"
+                    rel="noopener noreferrer" 
+                    className="text-white font-medium text-sm hover:text-red-600 transition-colors"
+                  >
+                    FilmTech Experience
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 className="text-white font-bold mb-6 flex items-center gap-2">
+                <Clock className="text-red-600" size={18} /> HORÁRIOS
+              </h3>
+              <div className="grid grid-cols-[100px_1fr] gap-y-3 text-sm">
+                 <div className="text-gray-500">Segunda</div>
+                 <div className="text-white font-medium">08:00 - 18:00</div>
+
+                 <div className="text-gray-500">Terça</div>
+                 <div className="text-white font-medium">08:00 - 18:00</div>
+
+                 <div className="text-gray-500">Quarta</div>
+                 <div className="text-white font-medium">08:00 - 18:00</div>
+
+                 <div className="text-gray-500">Quinta</div>
+                 <div className="text-white font-medium">08:00 - 18:00</div>
+
+                 <div className="text-gray-500">Sexta</div>
+                 <div className="text-white font-medium">08:00 - 18:00</div>
+
+                 <div className="text-gray-500">Sábado</div>
+                 <div className="text-white font-medium">09:00 - 12:00</div>
+
+                 <div className="text-gray-500">Domingo</div>
+                 <div className="text-neutral-700 font-bold uppercase text-xs pt-0.5">Fechado</div>
+              </div>
+            </div>
           </div>
 
-          <div>
-            <h3 className="text-white font-bold mb-6">HORÁRIOS</h3>
-            <ul className="space-y-4">
-              <li className="flex items-start gap-3 text-gray-400 text-sm">
-                <Clock className="w-5 h-5 text-red-600 shrink-0" />
-                <div>
-                  <p className="font-bold text-white">Segunda a Sexta</p>
-                  <p>08:00 - 19:00</p>
-                </div>
-              </li>
-              <li className="flex items-start gap-3 text-gray-400 text-sm">
-                <Clock className="w-5 h-5 text-red-600 shrink-0" />
-                <div>
-                  <p className="font-bold text-white">Sábado</p>
-                  <p>09:00 - 15:00</p>
-                </div>
-              </li>
-            </ul>
+          {/* Map Column (5 cols) - Expanded and Cropped */}
+          <div className="lg:col-span-5 h-full min-h-[350px] relative rounded-2xl overflow-hidden group lg:border-l lg:border-neutral-800 lg:ml-8">
+             {/* Wrapper to crop iframe edges - Aggressive crop to hide Google UI */}
+            <div className="absolute inset-[-25%] w-[150%] h-[150%]">
+              <iframe 
+                src="https://maps.google.com/maps?q=R.%20S-1,%20qd%20139%20-%20lt%2021%20-%20St.%20Bela%20Vista,%20Goi%C3%A2nia%20-%20GO&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                width="100%" 
+                height="100%" 
+                style={{ border: 0 }} 
+                allowFullScreen={false} 
+                loading="lazy"
+                className="w-full h-full object-cover"
+              ></iframe>
+            </div>
+            
+            {/* Overlay Link */}
+            <a 
+              href="https://www.google.com/maps/dir/?api=1&destination=FilmTech+Luxury+R.+S-1,+qd+139+-+lt+21+-+St.+Bela+Vista,+Goiânia+-+GO,+74823-310"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="absolute inset-0 z-10 bg-gradient-to-t from-black/80 via-transparent to-transparent group-hover:bg-black/10 transition-colors flex flex-col justify-end items-center pb-8 pointer-events-auto"
+            >
+              <div className="bg-red-600 text-white px-8 py-3 rounded-full font-bold text-sm uppercase tracking-widest shadow-lg transform group-hover:scale-110 transition-transform flex items-center gap-2">
+                <MapPin size={16} />
+                Como chegar?
+              </div>
+            </a>
           </div>
 
         </div>
 
-        <div className="border-t border-neutral-900 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+        <div id="footer-copyright" className="pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-neutral-600 text-sm">
             © {new Date().getFullYear()} FilmTech Luxury. Todos os direitos reservados.
           </p>
-          <div className="flex gap-6 text-neutral-600 text-sm">
-            <a href="#" className="hover:text-white">Termos</a>
-            <a href="#" className="hover:text-white">Privacidade</a>
+          <div className="flex gap-6 text-sm">
+            <a 
+              href="https://wa.me/5561998031185?text=Olá! gostaria de fazer um orçamento!" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="group flex items-center gap-2 text-neutral-400 hover:text-white transition-colors duration-300"
+            >
+              <Code size={16} className="text-red-600 group-hover:scale-110 transition-transform" />
+              <span className="font-medium">Desenvolvido por <span className="text-neutral-200 group-hover:text-red-500 transition-colors">Gusta</span></span>
+            </a>
           </div>
         </div>
       </div>
