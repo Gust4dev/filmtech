@@ -141,7 +141,8 @@ export const PortfolioCard: React.FC<PortfolioCardProps> = ({ item, index, onCli
     const sign = Math.sign(distance); // 1 for right, -1 for left
 
     // If it's too far, hide it to prevent visual glitches AND save performance
-    if (absDist > 2) {
+    // VISUAL UPDATE: Only show 3 items (Active, Left, Right) regardless of total count
+    if (absDist > 1) {
        return { display: 'none' };
     }
 
@@ -198,33 +199,47 @@ export const PortfolioCard: React.FC<PortfolioCardProps> = ({ item, index, onCli
 
       {/* 3D Carousel Container - Aspect Video for Landscape */}
       <div className="relative w-full aspect-video perspective-1000 flex items-center justify-center">
-        {item.images.map((img, i) => (
-          <div
-            key={i}
-            style={getCircularStyle(i)}
-            className="flex items-center justify-center bg-stone-900"
-          >
-            <img 
-               src={img} 
-               alt="" 
-               className="w-full h-full object-cover"
-            />
-            
-            {/* Overlay for Active Item Hover */}
-            {i === active && (
-               <>
-                  <div className={`absolute inset-0 bg-black/40 transition-opacity duration-300 ${isHovering ? 'opacity-100' : 'opacity-0'} flex items-center justify-center`}>
-                     <div className="bg-red-600/90 text-white p-3 rounded-full shadow-lg transform scale-0 group-hover:scale-100 transition-transform duration-300">
-                        <Maximize2 size={24} />
-                     </div>
-                  </div>
-                  <div className={`absolute bottom-4 right-4 bg-black/50 backdrop-blur px-3 py-1 rounded-full text-white text-xs font-bold uppercase tracking-widest transition-opacity duration-300 ${isHovering ? 'opacity-0' : 'opacity-100'}`}>
-                     {i + 1} / {count}
-                  </div>
-               </>
-            )}
-          </div>
-        ))}
+        {item.images.map((img, i) => {
+          // Circular distance logic
+          let distance = i - active;
+          if (distance > count / 2) distance -= count;
+          if (distance < -count / 2) distance += count;
+          const absDist = Math.abs(distance);
+          
+          // Virtualization: Don't render if too far
+          // VISUAL UPDATE: Only show 3 items (Active, Left, Right)
+          if (absDist > 1) return null;
+
+          return (
+            <div
+              key={i}
+              style={getCircularStyle(i)}
+              className="flex items-center justify-center bg-stone-900"
+            >
+              <img 
+                 src={img} 
+                 alt="" 
+                 loading="lazy"
+                 decoding="async"
+                 className="w-full h-full object-cover"
+              />
+              
+              {/* Overlay for Active Item Hover */}
+              {i === active && (
+                 <>
+                    <div className={`absolute inset-0 bg-black/40 transition-opacity duration-300 ${isHovering ? 'opacity-100' : 'opacity-0'} flex items-center justify-center`}>
+                       <div className="bg-red-600/90 text-white p-3 rounded-full shadow-lg transform scale-0 group-hover:scale-100 transition-transform duration-300">
+                          <Maximize2 size={24} />
+                       </div>
+                    </div>
+                    <div className={`absolute bottom-4 right-4 bg-black/50 backdrop-blur px-3 py-1 rounded-full text-white text-xs font-bold uppercase tracking-widest transition-opacity duration-300 ${isHovering ? 'opacity-0' : 'opacity-100'}`}>
+                       {i + 1} / {count}
+                    </div>
+                 </>
+              )}
+            </div>
+          );
+        })}
       </div>
     </div>
   );

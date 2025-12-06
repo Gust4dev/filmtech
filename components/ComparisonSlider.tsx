@@ -36,25 +36,38 @@ export const ComparisonSlider: React.FC = () => {
             <FadeIn delay={200}>
               <div className="relative w-full aspect-video rounded-xl overflow-hidden shadow-2xl border border-neutral-800">
 
-                <div 
-                  className="absolute inset-0 bg-no-repeat"
+                {/* After Image (Background) */}
+                <img 
+                  src={afterImage}
+                  alt="After"
+                  className="absolute inset-0 w-full h-full object-cover"
                   style={{ 
-                    backgroundImage: `url(${afterImage})`,
-                    backgroundPosition: '90% 52%', // Mude AQUI: 1º num = Esquerda/Direita, 2º num = Cima/Baixo
-                    backgroundSize: '120%'       // Mude AQUI: 'cover' para automático ou '120%' para zoom
+                    objectPosition: '90% 52%',
+                    transform: 'scale(1.2)' 
                   }}
+                  loading="lazy"
+                  decoding="async"
                 />
 
+                {/* Before Image (Foreground - Clipped) */}
                 <div 
-                  className="absolute inset-0 bg-no-repeat"
+                  className="absolute inset-0 overflow-hidden"
                   style={{ 
-                    backgroundImage: `url(${beforeImage})`,
                     clipPath: `polygon(0 0, ${sliderPosition}% 0, ${sliderPosition}% 100%, 0 100%)`,
-                    backgroundPosition: '50% 50%', // Mude AQUI: 1º num = Esquerda/Direita, 2º num = Cima/Baixo
-                    backgroundSize: '100%'       // Mude AQUI: 'cover' para automático ou '120%' para zoom
                   }}
                 >
-                   <div className="absolute inset-0 bg-black/20 backdrop-sepia-[.5]"></div>
+                  <img 
+                    src={beforeImage} 
+                    alt="Before"
+                    className="absolute inset-0 w-full h-full object-cover"
+                    style={{ 
+                      objectPosition: '50% 50%',
+                      transform: 'scale(1.0)' // Default was 100%
+                    }}
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <div className="absolute inset-0 bg-black/20 backdrop-sepia-[.5]"></div>
                 </div>
 
 

@@ -59,7 +59,7 @@ export const PORTFOLIO: PortfolioItem[] = [
       '/images/portfolio/porsche/gt3 (4).JPG',
       '/images/portfolio/porsche/gt3 (5).JPG',
     ], 
-    title: 'Porsche GT3 - Vitrificação', 
+    title: 'Porsche GT3 - Envelopamento', 
     instagramLink: '#' 
   },
   { 
@@ -71,7 +71,7 @@ export const PORTFOLIO: PortfolioItem[] = [
       '/images/portfolio/mustang/mustang-polimento4.JPG',
       '/images/portfolio/mustang/mustang-polimento5.JPG',
     ], 
-    title: 'Mustang GT - Polimento', 
+    title: 'Mustang GT - PPF FULL IMMORTAL', 
     instagramLink: '#' 
   },
   { 
@@ -83,7 +83,7 @@ export const PORTFOLIO: PortfolioItem[] = [
       '/images/portfolio/bmw/bmw (4).JPG',
       '/images/portfolio/bmw/bmw (5).JPG',
     ], 
-    title: 'BMW - Higienização', 
+    title: 'BMW - PPF/Vitrificação', 
     instagramLink: '#' 
   },
   { 
@@ -93,7 +93,7 @@ export const PORTFOLIO: PortfolioItem[] = [
       '/images/portfolio/gli/gli (2).JPG',
       '/images/portfolio/gli/gli (3).JPG',
     ], 
-    title: 'VW Jetta GLI - Full Detail', 
+    title: 'VW Jetta GLI - PPF', 
     instagramLink: '#' 
   },
   { 
@@ -104,7 +104,7 @@ export const PORTFOLIO: PortfolioItem[] = [
       '/images/portfolio/bmw2/bmw2 (3).JPG',
       '/images/portfolio/bmw2/bmw2 (4).JPG',
     ], 
-    title: 'BMW Série 3 - Interior', 
+    title: 'BMW 320i M sport - PPF FULL/Película', 
     instagramLink: '#' 
   },
 ];

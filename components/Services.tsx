@@ -54,7 +54,7 @@ export const Services: React.FC = () => {
           <FadeIn direction="left">
             <div className="relative h-[500px] group overflow-hidden rounded-sm cursor-pointer">
               <img 
-                src="/images/portfolio/porsche/Envelopamento.png" 
+                src="/images/portfolio/porsche/Envelopamento.JPG" 
                 alt="Envelopamento Premium" 
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
