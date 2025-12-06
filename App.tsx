@@ -28,11 +28,11 @@ const App: React.FC = () => {
       <Navbar />
       <main>
         <Hero />
-        <Services />
-        <ExclusiveProjectCta />
         <ComparisonSlider />
-        <ProtectionEngineering />
         <Portfolio />
+        <ExclusiveProjectCta />
+        {/* <Services /> */}
+        <ProtectionEngineering />
         <AuthorityStrip />
         <GoogleReviews />
       </main>

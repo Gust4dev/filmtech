@@ -19,7 +19,7 @@ export const Hero: React.FC = () => {
         <img 
           src="/images/hero/hero_bg_mobile.JPG" 
           alt="Luxury Car Detail Mobile" 
-          className="w-190% h-full object-cover object-center block md:hidden"
+          className="w-200% h-full object-cover object-center block md:hidden"
         />
         
         {/* Desktop Background */}

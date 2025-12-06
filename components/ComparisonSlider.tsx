@@ -13,7 +13,7 @@ export const ComparisonSlider: React.FC = () => {
   };
 
   return (
-    <section className="py-24 bg-white overflow-hidden">
+    <section className="py-24 bg-concrete overflow-hidden">
       <div className="container mx-auto px-6">
         <div className="flex flex-col md:flex-row items-center gap-12">
           
