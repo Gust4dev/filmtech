@@ -1,6 +1,7 @@
 import React from 'react';
 import { FadeIn } from './FadeIn';
 import { MessageCircle, ArrowRight } from 'lucide-react';
+import { PHONE_NUMBER } from '../constants';
 
 export const ExclusiveProjectCta: React.FC = () => {
   return (
@@ -16,7 +17,7 @@ export const ExclusiveProjectCta: React.FC = () => {
           
           <div className="flex flex-col md:flex-row justify-center gap-6">
             <a 
-              href="https://wa.me/5511999999999?text=Gostaria de um projeto exclusivo"
+              href={`https://wa.me/${PHONE_NUMBER}?text=Gostaria de um projeto exclusivo`}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-green-600 text-white font-bold text-sm tracking-widest uppercase hover:bg-green-700 transition-all rounded shadow-lg hover:shadow-green-600/20"

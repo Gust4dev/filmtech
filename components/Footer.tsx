@@ -33,7 +33,7 @@ export const Footer: React.FC = () => {
               </li>
               <li className="flex items-center gap-3 text-gray-400 text-sm">
                 <Phone className="w-5 h-5 text-red-600 shrink-0" />
-                <span>(11) 99999-9999</span>
+                <span>(62) 9242-5852</span>
               </li>
               <li className="flex items-center gap-3 text-gray-400 text-sm">
                 <Mail className="w-5 h-5 text-red-600 shrink-0" />

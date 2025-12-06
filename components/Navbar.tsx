@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
+import { PHONE_NUMBER } from '../constants';
 
 export const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -42,8 +43,16 @@ export const Navbar: React.FC = () => {
               {link.name}
             </button>
           ))}
+          <a 
+            href={`https://wa.me/${PHONE_NUMBER}`}
+            target="_blank"
+            rel="noreferrer"
+            className={`text-xs font-bold uppercase tracking-wider mr-4 transition-colors ${isScrolled ? 'text-stone-900 hover:text-red-600' : 'text-stone-900 hover:text-red-600'}`}
+          >
+            (62) 9242-5852
+          </a>
           <button 
-            onClick={() => window.open(`https://wa.me/5511999999999`, '_blank')}
+            onClick={() => window.open(`https://wa.me/${PHONE_NUMBER}`, '_blank')}
             className="px-5 py-2 bg-red-600 text-white text-xs font-bold uppercase rounded hover:bg-red-700 transition-colors shadow-lg shadow-red-600/20"
           >
             Agendar

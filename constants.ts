@@ -1,7 +1,7 @@
 import { ServiceItem, PortfolioItem, HealthStat } from './types';
 
 export const BRAND_NAME = "FilmTech Luxury";
-export const PHONE_NUMBER = "5511999999999"; // Example number
+export const PHONE_NUMBER = "556292425852";
 export const INSTAGRAM_URL = "https://www.instagram.com/filmtech_luxury/";
 
 export const SERVICES: ServiceItem[] = [

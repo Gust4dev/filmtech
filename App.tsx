@@ -8,6 +8,7 @@ import { ComparisonSlider } from './components/ComparisonSlider';
 import { ProtectionEngineering } from './components/ProtectionEngineering';
 import { Portfolio } from './components/Portfolio';
 import { AuthorityStrip } from './components/AuthorityStrip';
+import { GoogleReviews } from './components/GoogleReviews';
 import { Footer } from './components/Footer';
 import { FloatingWhatsapp } from './components/FloatingWhatsapp';
 
@@ -29,6 +30,7 @@ const App: React.FC = () => {
         <ProtectionEngineering />
         <Portfolio />
         <AuthorityStrip />
+        <GoogleReviews />
       </main>
       <Footer />
       <FloatingWhatsapp />

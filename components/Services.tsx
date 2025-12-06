@@ -1,5 +1,5 @@
 import React from 'react';
-import { SERVICES } from '../constants';
+import { SERVICES, PHONE_NUMBER } from '../constants';
 import { Droplets, Sparkles, ShieldCheck, Zap, Wind, Settings, Sun } from 'lucide-react';
 import { FadeIn } from './FadeIn';
 
@@ -43,7 +43,10 @@ export const Services: React.FC = () => {
                 <p className="text-sm font-medium text-gray-300 mb-6 max-w-sm leading-relaxed">
                   A única defesa real contra detritos de estrada. Filme regenerativo que mantém a pintura original impecável.
                 </p>
-                <button className="px-6 py-3 bg-red-600 text-white text-xs font-bold uppercase tracking-widest hover:bg-red-700 transition-colors shadow-lg">
+                <button 
+                  onClick={() => window.open(`https://wa.me/${PHONE_NUMBER}?text=Olá, gostaria de uma cotação para PPF.`, '_blank')}
+                  className="px-6 py-3 bg-red-600 text-white text-xs font-bold uppercase tracking-widest hover:bg-red-700 transition-colors shadow-lg"
+                >
                   Solicitar Cotação
                 </button>
               </div>
@@ -65,7 +68,10 @@ export const Services: React.FC = () => {
                 <p className="text-sm font-medium text-gray-300 mb-6 max-w-sm leading-relaxed">
                   Transformação total de cor. Acabamentos exclusivos (Satin, Matte, Gloss) que valorizam o design do carro.
                 </p>
-                <button className="px-6 py-3 bg-red-600 text-white text-xs font-bold uppercase tracking-widest hover:bg-red-700 transition-colors shadow-lg">
+                <button 
+                  onClick={() => window.open(`https://wa.me/${PHONE_NUMBER}?text=Olá, gostaria de saber mais sobre cores de Envelopamento.`, '_blank')}
+                  className="px-6 py-3 bg-red-600 text-white text-xs font-bold uppercase tracking-widest hover:bg-red-700 transition-colors shadow-lg"
+                >
                   Ver Cores
                 </button>
               </div>
