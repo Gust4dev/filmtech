@@ -7,7 +7,7 @@ export interface ServiceItem {
 
 export interface PortfolioItem {
   id: string;
-  imageUrl: string;
+  images: string[];
   title: string;
   instagramLink: string;
 }

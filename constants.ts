@@ -2,7 +2,7 @@ import { ServiceItem, PortfolioItem, HealthStat } from './types';
 
 export const BRAND_NAME = "FilmTech Luxury";
 export const PHONE_NUMBER = "5511999999999"; // Example number
-export const INSTAGRAM_URL = "https://instagram.com/velocita_estetica";
+export const INSTAGRAM_URL = "https://www.instagram.com/filmtech_luxury/";
 
 export const SERVICES: ServiceItem[] = [
   {
@@ -50,10 +50,61 @@ export const HEALTH_STATS: HealthStat[] = [
 ];
 
 export const PORTFOLIO: PortfolioItem[] = [
-  { id: '1', imageUrl: '/images/portfolio/porsche/gt3 (1).JPG', title: 'Porsche GT3 - Vitrificação', instagramLink: '#' },
-  { id: '2', imageUrl: '/images/portfolio/mustang/mustang-polimento.JPG', title: 'Mustang GT - Polimento', instagramLink: '#' },
-  { id: '3', imageUrl: '/images/portfolio/bmw/bmw (1).JPG', title: 'BMW - Higienização', instagramLink: '#' },
-  { id: '4', imageUrl: '/images/portfolio/gli/gli (1).JPG', title: 'VW Jetta GLI - Full Detail', instagramLink: '#' },
-  { id: '5', imageUrl: '/images/portfolio/bmw2/bmw2 (1).JPG', title: 'BMW Série 3 - Interior', instagramLink: '#' },
-  { id: '6', imageUrl: '/images/portfolio/porsche/gt3 (2).JPG', title: 'Porsche GT3 - Detalhe', instagramLink: '#' },
+  { 
+    id: '1', 
+    images: [
+      '/images/portfolio/porsche/gt3 (1).JPG',
+      '/images/portfolio/porsche/gt3 (2).JPG',
+      '/images/portfolio/porsche/gt3 (3).JPG',
+      '/images/portfolio/porsche/gt3 (4).JPG',
+      '/images/portfolio/porsche/gt3 (5).JPG',
+    ], 
+    title: 'Porsche GT3 - Vitrificação', 
+    instagramLink: '#' 
+  },
+  { 
+    id: '2', 
+    images: [
+      '/images/portfolio/mustang/mustang-polimento.JPG',
+      '/images/portfolio/mustang/mustang-polimento2.JPG',
+      '/images/portfolio/mustang/mustang-polimento3.JPG',
+      '/images/portfolio/mustang/mustang-polimento4.JPG',
+      '/images/portfolio/mustang/mustang-polimento5.JPG',
+    ], 
+    title: 'Mustang GT - Polimento', 
+    instagramLink: '#' 
+  },
+  { 
+    id: '3', 
+    images: [
+      '/images/portfolio/bmw/bmw (1).JPG',
+      '/images/portfolio/bmw/bmw (2).JPG',
+      '/images/portfolio/bmw/bmw (3).JPG',
+      '/images/portfolio/bmw/bmw (4).JPG',
+      '/images/portfolio/bmw/bmw (5).JPG',
+    ], 
+    title: 'BMW - Higienização', 
+    instagramLink: '#' 
+  },
+  { 
+    id: '4', 
+    images: [
+      '/images/portfolio/gli/gli (1).JPG',
+      '/images/portfolio/gli/gli (2).JPG',
+      '/images/portfolio/gli/gli (3).JPG',
+    ], 
+    title: 'VW Jetta GLI - Full Detail', 
+    instagramLink: '#' 
+  },
+  { 
+    id: '5', 
+    images: [
+      '/images/portfolio/bmw2/bmw2 (1).JPG',
+      '/images/portfolio/bmw2/bmw2 (2).JPG',
+      '/images/portfolio/bmw2/bmw2 (3).JPG',
+      '/images/portfolio/bmw2/bmw2 (4).JPG',
+    ], 
+    title: 'BMW Série 3 - Interior', 
+    instagramLink: '#' 
+  },
 ];

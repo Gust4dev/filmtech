@@ -5,7 +5,7 @@ export const ComparisonSlider: React.FC = () => {
   const [sliderPosition, setSliderPosition] = useState(50);
 
 
-  const afterImage = "/images/comparison/after.png";
+  const afterImage = "/images/comparison/after.JPG";
   const beforeImage = "/images/comparison/before.JPG";
 
   const handleSliderChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -35,16 +35,23 @@ export const ComparisonSlider: React.FC = () => {
           <div className="w-full md:w-2/3 relative group">
             <FadeIn delay={200}>
               <div className="relative w-full aspect-video rounded-xl overflow-hidden shadow-2xl border border-neutral-800">
+
                 <div 
-                  className="absolute inset-0 bg-cover bg-center"
-                  style={{ backgroundImage: `url(${afterImage})` }}
+                  className="absolute inset-0 bg-no-repeat"
+                  style={{ 
+                    backgroundImage: `url(${afterImage})`,
+                    backgroundPosition: '90% 52%', // Mude AQUI: 1º num = Esquerda/Direita, 2º num = Cima/Baixo
+                    backgroundSize: '120%'       // Mude AQUI: 'cover' para automático ou '120%' para zoom
+                  }}
                 />
 
                 <div 
-                  className="absolute inset-0 bg-cover bg-center"
+                  className="absolute inset-0 bg-no-repeat"
                   style={{ 
                     backgroundImage: `url(${beforeImage})`,
-                    clipPath: `polygon(0 0, ${sliderPosition}% 0, ${sliderPosition}% 100%, 0 100%)`
+                    clipPath: `polygon(0 0, ${sliderPosition}% 0, ${sliderPosition}% 100%, 0 100%)`,
+                    backgroundPosition: '50% 50%', // Mude AQUI: 1º num = Esquerda/Direita, 2º num = Cima/Baixo
+                    backgroundSize: '100%'       // Mude AQUI: 'cover' para automático ou '120%' para zoom
                   }}
                 >
                    <div className="absolute inset-0 bg-black/20 backdrop-sepia-[.5]"></div>
