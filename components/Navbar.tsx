@@ -43,16 +43,8 @@ export const Navbar: React.FC = () => {
               {link.name}
             </button>
           ))}
-          <a 
-            href={`https://wa.me/${PHONE_NUMBER}`}
-            target="_blank"
-            rel="noreferrer"
-            className={`text-xs font-bold uppercase tracking-wider mr-4 transition-colors ${isScrolled ? 'text-stone-900 hover:text-red-600' : 'text-stone-900 hover:text-red-600'}`}
-          >
-            (62) 9242-5852
-          </a>
           <button 
-            onClick={() => window.open(`https://wa.me/${PHONE_NUMBER}`, '_blank')}
+            onClick={() => window.open(`https://wa.me/${PHONE_NUMBER}?text=Olá, gostaria de agendar uma avaliação.`, '_blank')}
             className="px-5 py-2 bg-red-600 text-white text-xs font-bold uppercase rounded hover:bg-red-700 transition-colors shadow-lg shadow-red-600/20"
           >
             Agendar

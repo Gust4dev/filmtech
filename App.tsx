@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { LoadingScreen } from './components/LoadingScreen';
+
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { Services } from './components/Services';
@@ -13,12 +13,6 @@ import { Footer } from './components/Footer';
 import { FloatingWhatsapp } from './components/FloatingWhatsapp';
 
 const App: React.FC = () => {
-  const [loading, setLoading] = useState(true);
-
-  if (loading) {
-    return <LoadingScreen onFinish={() => setLoading(false)} />;
-  }
-
   return (
     <div className="min-h-screen bg-white text-neutral-900 selection:bg-red-600 selection:text-white">
       <Navbar />

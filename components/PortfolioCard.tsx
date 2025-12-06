@@ -15,7 +15,7 @@ export const PortfolioCard: React.FC<PortfolioCardProps> = ({ item, index, onCli
 
   const count = item.images.length;
   // Slower rotation as requested (5s)
-  const rotationInterval = 5000; 
+  const rotationInterval = 3000; 
 
   const startRotation = () => {
     if (intervalRef.current) return;

@@ -21,7 +21,7 @@ export const Hero: React.FC = () => {
           className="w-full h-full object-cover object-center"
         />
         {/* White gradient overlay for text readability - essential for black text on dark image */}
-        <div className="absolute inset-0 bg-gradient-to-r from-white via-white/90 via-30% to-transparent sm:w-[70%]"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-white via-white/90 via-60% sm:via-30% to-transparent sm:w-[70%]"></div>
         <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-white to-transparent"></div>
       </div>
 
