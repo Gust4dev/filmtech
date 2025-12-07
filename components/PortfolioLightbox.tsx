@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { X, ChevronLeft, ChevronRight, Image as ImageIcon } from 'lucide-react';
 import { PortfolioItem } from '../types';
+import { motion, AnimatePresence } from 'framer-motion';
 
 interface PortfolioLightboxProps {
   isOpen: boolean;
@@ -10,6 +11,7 @@ interface PortfolioLightboxProps {
 
 export const PortfolioLightbox: React.FC<PortfolioLightboxProps> = ({ isOpen, album, onClose }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [direction, setDirection] = useState(0);
 
   const [touchStart, setTouchStart] = useState<number | null>(null);
   const [touchEnd, setTouchEnd] = useState<number | null>(null);
@@ -45,6 +47,7 @@ export const PortfolioLightbox: React.FC<PortfolioLightboxProps> = ({ isOpen, al
   useEffect(() => {
     if (isOpen && album) {
       setCurrentIndex(0);
+      setDirection(0);
       document.body.style.overflow = 'hidden'; // Lock scroll
     } else {
       document.body.style.overflow = ''; // Unlock scroll
@@ -56,11 +59,13 @@ export const PortfolioLightbox: React.FC<PortfolioLightboxProps> = ({ isOpen, al
 
   const handleNext = useCallback(() => {
     if (!album) return;
+    setDirection(1);
     setCurrentIndex((prev) => (prev + 1) % album.images.length);
   }, [album]);
 
   const handlePrev = useCallback(() => {
     if (!album) return;
+    setDirection(-1);
     setCurrentIndex((prev) => (prev - 1 + album.images.length) % album.images.length);
   }, [album]);
 
@@ -79,6 +84,23 @@ export const PortfolioLightbox: React.FC<PortfolioLightboxProps> = ({ isOpen, al
   }, [isOpen, onClose, handleNext, handlePrev]);
 
   if (!isOpen || !album) return null;
+
+  const variants = {
+    enter: (direction: number) => ({
+      x: direction > 0 ? 1000 : -1000,
+      opacity: 0
+    }),
+    center: {
+      zIndex: 1,
+      x: 0,
+      opacity: 1
+    },
+    exit: (direction: number) => ({
+      zIndex: 0,
+      x: direction < 0 ? 1000 : -1000,
+      opacity: 0
+    })
+  };
 
   return (
     <div className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-black/95 backdrop-blur-md animate-in fade-in duration-300">
@@ -102,7 +124,7 @@ export const PortfolioLightbox: React.FC<PortfolioLightboxProps> = ({ isOpen, al
 
       {/* Main Image Container */}
       <div 
-        className="relative flex-1 w-full flex items-center justify-center p-4 md:p-12"
+        className="relative flex-1 w-full flex items-center justify-center p-4 md:p-12 overflow-hidden"
         onTouchStart={onTouchStart}
         onTouchMove={onTouchMove}
         onTouchEnd={onTouchEnd}
@@ -119,11 +141,23 @@ export const PortfolioLightbox: React.FC<PortfolioLightboxProps> = ({ isOpen, al
             <div className="absolute inset-y-0 left-0 w-1/2 cursor-w-resize z-20 hidden md:block" onClick={handlePrev} />
             <div className="absolute inset-y-0 right-0 w-1/2 cursor-e-resize z-20 hidden md:block" onClick={handleNext} />
             
-            <img 
-            src={album.images[currentIndex]} 
-            alt={`${album.title} - View ${currentIndex + 1}`}
-            className="max-h-full max-w-full object-contain rounded-sm shadow-2xl animate-in zoom-in-95 duration-300 select-none"
-            />
+            <AnimatePresence initial={false} custom={direction} mode="popLayout">
+              <motion.img 
+                key={currentIndex}
+                src={album.images[currentIndex]} 
+                custom={direction}
+                variants={variants}
+                initial="enter"
+                animate="center"
+                exit="exit"
+                transition={{
+                  x: { type: "spring", stiffness: 300, damping: 30 },
+                  opacity: { duration: 0.2 }
+                }}
+                alt={`${album.title} - View ${currentIndex + 1}`}
+                className="max-h-full max-w-full object-contain rounded-sm shadow-2xl select-none absolute"
+              />
+            </AnimatePresence>
         </div>
 
         <button 
@@ -140,7 +174,10 @@ export const PortfolioLightbox: React.FC<PortfolioLightboxProps> = ({ isOpen, al
             {album.images.map((img, idx) => (
             <button
                 key={idx}
-                onClick={() => setCurrentIndex(idx)}
+                onClick={() => {
+                  setDirection(idx > currentIndex ? 1 : -1);
+                  setCurrentIndex(idx);
+                }}
                 className={`flex-shrink-0 relative w-20 h-16 md:w-24 md:h-20 rounded-lg overflow-hidden transition-all duration-300 border-2 ${
                 idx === currentIndex 
                     ? 'border-red-600 scale-110 opacity-100 ring-2 ring-red-600/50 z-10' 

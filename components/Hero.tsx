@@ -30,8 +30,8 @@ export const Hero: React.FC = () => {
         />
         
         {/* White gradient overlay for text readability - essential for black text on dark image */}
-        <div className="absolute inset-0 bg-gradient-to-r from-white via-white/90 via-50% sm:via-30% to-transparent sm:w-[70%]"></div>
-        <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-white to-transparent"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-white/80 via-white/60 via-50% sm:from-white sm:via-white/90 sm:via-30% to-transparent sm:w-[70%]"></div>
+        <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-white/40 sm:from-white to-transparent"></div>
       </div>
 
 
