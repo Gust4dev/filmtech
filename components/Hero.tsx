@@ -13,13 +13,13 @@ export const Hero: React.FC = () => {
   };
 
   return (
-    <section className="relative h-screen min-h-[600px] flex items-center overflow-hidden bg-white">
+    <section className="relative h-auto min-h-[550px] md:h-screen flex items-center overflow-hidden bg-white">
       <div className="absolute inset-0 z-0">
         {/* Mobile Background */}
         <img 
           src="/images/hero/hero_bg_mobile.JPG" 
           alt="Luxury Car Detail Mobile" 
-          className="w-200% h-full object-cover object-center block md:hidden"
+          className="w-full h-full object-cover object-center block md:hidden"
         />
         
         {/* Desktop Background */}

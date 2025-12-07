@@ -11,10 +11,3 @@ export interface PortfolioItem {
   title: string;
   instagramLink: string;
 }
-
-export interface HealthStat {
-  name: string;
-  count: number;
-  unit: string;
-  color: string;
-}

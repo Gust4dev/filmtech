@@ -1,4 +1,4 @@
-import { ServiceItem, PortfolioItem, HealthStat } from './types';
+import { ServiceItem, PortfolioItem } from './types';
 
 export const BRAND_NAME = "FilmTech Luxury";
 export const PHONE_NUMBER = "5562982204604";
@@ -45,12 +45,6 @@ export const SERVICES: ServiceItem[] = [
   }
 ];
 
-export const HEALTH_STATS: HealthStat[] = [
-  { name: 'Fungos', count: 2500, unit: 'colônias/m³', color: '#ef4444' },
-  { name: 'Bactérias', count: 4000, unit: 'colônias/m³', color: '#dc2626' },
-  { name: 'Ácaros', count: 1500, unit: 'unidades/g', color: '#b91c1c' },
-];
-
 export const PORTFOLIO: PortfolioItem[] = [
   { 
     id: '1', 
@@ -85,7 +79,7 @@ export const PORTFOLIO: PortfolioItem[] = [
       '/images/portfolio/bmw/bmw (4).JPG',
       '/images/portfolio/bmw/bmw (5).JPG',
     ], 
-    title: 'BMW - PPF/Vitrificação', 
+    title: 'BMW - PPF Frontal + Vitrificação', 
     instagramLink: '#' 
   },
   { 
@@ -117,9 +111,8 @@ export const PORTFOLIO: PortfolioItem[] = [
       '/images/portfolio/bmw3/bmw3 (3).JPG',
       '/images/portfolio/bmw3/bmw3 (4).JPG',
       '/images/portfolio/bmw3/bmw3 (5).JPG',
-      '/images/portfolio/bmw3/bmw3 (6).JPG',
     ], 
-    title: 'BMW X3 30 - PPF FULL', 
+    title: 'BMW X3 30 - PPF FULL + Película nano cerâmica', 
     instagramLink: '#' 
   },
   { 

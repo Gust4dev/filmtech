@@ -190,7 +190,7 @@ export const PortfolioCard: React.FC<PortfolioCardProps> = ({ item, index, onCli
     >
       {/* Title & Info outside the carousel to stay stable */}
       <div className="mb-4 flex flex-col items-center">
-         <h3 className="text-xl font-bold text-dark-lead uppercase tracking-wider">{item.title}</h3>
+         <h3 className="text-xl font-bold text-dark-lead uppercase tracking-wider text-center h-[5.5rem] flex items-center justify-center px-4 leading-tight">{item.title}</h3>
          <div className="flex items-center gap-2 text-red-600 text-xs font-bold uppercase tracking-widest">
             <Layers size={12} />
             <span>{count} Imagens</span>
