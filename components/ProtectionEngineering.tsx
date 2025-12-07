@@ -51,32 +51,7 @@ export const ProtectionEngineering: React.FC = () => {
                 </div>
               </FadeIn>
 
-              {/* Destaque Visual - Logo FilmTech (Sem Zoom) */}
-              <FadeIn delay={300}>
-                  <div 
-                    className="bg-white p-6 rounded-2xl shadow-lg border border-gray-100 flex flex-col sm:flex-row items-center gap-6 group hover:shadow-2xl transition-all duration-300"
-                  >
-                      <div className="w-full sm:w-40 h-40 shrink-0 rounded-xl overflow-hidden shadow-sm relative p-4 bg-gray-50 flex items-center justify-center">
-                          <img 
-                              src="/images/logos/logo.png" 
-                              alt="Logo FilmTech" 
-                              className="w-full h-full object-contain"
-                          />
-                      </div>
-                      <div>
-                          <h4 className="font-black text-dark-lead text-lg uppercase tracking-wide mb-2 flex items-center gap-2">
-                             <ShieldCheck size={20} className="text-red-700" />
-                             <span>Padrão <span className="text-red-700">F</span>ilmTech</span>
-                          </h4>
-                          <p className="text-sm text-stone-500 leading-relaxed mb-3">
-                              Acabamento invisível nas entradas de portas. Sem cortes na lataria, sem emendas aparentes.
-                          </p>
-                          <span className="text-xs font-bold text-red-700 bg-red-50 px-3 py-1 rounded-full uppercase tracking-wider">
-                              Proteção Integral
-                          </span>
-                      </div>
-                  </div>
-              </FadeIn>
+
 
               {/* Lista de Diferenciais - PPF Tiers */}
               <div className="grid grid-cols-1 gap-8">

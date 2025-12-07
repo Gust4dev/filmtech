@@ -19,7 +19,24 @@ export const ComparisonSlider: React.FC = () => {
           
           <div className="w-full md:w-1/3 space-y-6">
             <FadeIn direction="right">
-              <h2 className="text-3xl font-bold text-dark-lead brand-font uppercase tracking-widest">O PROCESSO FILMTECH</h2>
+              <h2 className="text-2xl md:text-3xl font-bold text-dark-lead brand-font uppercase tracking-widest leading-normal">
+                O PROCESSO 
+                <span className="whitespace-nowrap inline-flex items-baseline ml-2">
+                  <img 
+                    src="/images/logos/F_logo_nobg.png" 
+                    alt="F" 
+                    className="inline-block"
+                    style={{ 
+                      height: '0.74em', 
+                      width: 'auto', 
+                      marginRight: '3px',
+                      transform: 'translateY(1px)', // Fine-tune baseline visual
+                      clipPath: 'inset(0 0 0.4x 0)' // Trims 1px from the bottom
+                    }} 
+                  />
+                  ILMTECH
+                </span>
+              </h2>
               <div className="w-20 h-1 bg-red-600"></div>
               <p className="text-stone-600">
                 Cada veículo é tratado como um projeto único. Desmonte técnico, limpeza cirúrgica e aplicação perfeita.

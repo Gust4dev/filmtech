@@ -1,7 +1,7 @@
 import { ServiceItem, PortfolioItem, HealthStat } from './types';
 
 export const BRAND_NAME = "FilmTech Luxury";
-export const PHONE_NUMBER = "556292425852";
+export const PHONE_NUMBER = "5562982204604";
 export const INSTAGRAM_URL = "https://www.instagram.com/filmtech_luxury/";
 export const TIKTOK_URL = "https://www.tiktok.com/@gustavofilmtech?_r=1&_t=ZS-91MdmSHOued";
 export const YOUTUBE_URL = "https://www.youtube.com/@filmtechprobrasil";
@@ -61,7 +61,7 @@ export const PORTFOLIO: PortfolioItem[] = [
       '/images/portfolio/porsche/gt3 (4).JPG',
       '/images/portfolio/porsche/gt3 (5).JPG',
     ], 
-    title: 'Porsche GT3 - Envelopamento', 
+    title: 'Porsche GT3 RS - Envelopamento', 
     instagramLink: '#' 
   },
   { 
@@ -107,6 +107,32 @@ export const PORTFOLIO: PortfolioItem[] = [
       '/images/portfolio/bmw2/bmw2 (4).JPG',
     ], 
     title: 'BMW 320i M sport - PPF FULL/Película', 
+    instagramLink: '#' 
+  },
+  { 
+    id: '6', 
+    images: [
+      '/images/portfolio/bmw3/bmw3 (1).JPG',
+      '/images/portfolio/bmw3/bmw3 (2).JPG',
+      '/images/portfolio/bmw3/bmw3 (3).JPG',
+      '/images/portfolio/bmw3/bmw3 (4).JPG',
+      '/images/portfolio/bmw3/bmw3 (5).JPG',
+      '/images/portfolio/bmw3/bmw3 (6).JPG',
+    ], 
+    title: 'BMW X3 30 - PPF FULL', 
+    instagramLink: '#' 
+  },
+  { 
+    id: '7', 
+    images: [
+      '/images/portfolio/byd/byd (1).JPG',
+      '/images/portfolio/byd/byd (2).JPG',
+      '/images/portfolio/byd/byd (3).JPG',
+      '/images/portfolio/byd/byd (4).JPG',
+      '/images/portfolio/byd/byd (5).JPG',
+      '/images/portfolio/byd/byd (6).JPG',
+    ], 
+    title: 'BYD Song Plus - Chrome delete', 
     instagramLink: '#' 
   },
 ];

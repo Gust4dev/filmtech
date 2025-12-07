@@ -9,7 +9,7 @@ export const Hero: React.FC = () => {
   };
 
   const openWhatsApp = () => {
-    window.open(`https://wa.me/${PHONE_NUMBER}?text=Olá, gostaria de agendar uma avaliação.`, '_blank');
+    window.open(`https://wa.me/${PHONE_NUMBER}?text=Olá, gostaria de um orçamento.`, '_blank');
   };
 
   return (

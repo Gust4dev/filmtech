@@ -11,6 +11,36 @@ interface PortfolioLightboxProps {
 export const PortfolioLightbox: React.FC<PortfolioLightboxProps> = ({ isOpen, album, onClose }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
+  const [touchStart, setTouchStart] = useState<number | null>(null);
+  const [touchEnd, setTouchEnd] = useState<number | null>(null);
+
+  // Minimum swipe distance (in px)
+  const minSwipeDistance = 50;
+
+  const onTouchStart = (e: React.TouchEvent) => {
+    setTouchEnd(null); // Reset touch end
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const onTouchMove = (e: React.TouchEvent) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const onTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > minSwipeDistance;
+    const isRightSwipe = distance < -minSwipeDistance;
+
+    if (isLeftSwipe) {
+      handleNext();
+    }
+    if (isRightSwipe) {
+      handlePrev();
+    }
+  };
+
   // Reset index when album opens
   useEffect(() => {
     if (isOpen && album) {
@@ -71,7 +101,12 @@ export const PortfolioLightbox: React.FC<PortfolioLightboxProps> = ({ isOpen, al
       </div>
 
       {/* Main Image Container */}
-      <div className="relative flex-1 w-full flex items-center justify-center p-4 md:p-12">
+      <div 
+        className="relative flex-1 w-full flex items-center justify-center p-4 md:p-12"
+        onTouchStart={onTouchStart}
+        onTouchMove={onTouchMove}
+        onTouchEnd={onTouchEnd}
+      >
         <button 
           onClick={handlePrev}
           className="absolute left-4 md:left-8 p-3 bg-black/50 hover:bg-red-600 rounded-full text-white transition-all transform hover:scale-110 z-40 hidden md:block border border-white/10 hover:border-red-600"
@@ -80,9 +115,9 @@ export const PortfolioLightbox: React.FC<PortfolioLightboxProps> = ({ isOpen, al
         </button>
 
         <div className="relative max-w-7xl w-full h-full flex items-center justify-center">
-            {/* Click on Left side for prev, Right side for next (Invisible overlay) */}
-            <div className="absolute inset-y-0 left-0 w-1/2 cursor-w-resize z-20 md:hidden" onClick={handlePrev} />
-            <div className="absolute inset-y-0 right-0 w-1/2 cursor-e-resize z-20 md:hidden" onClick={handleNext} />
+            {/* Click on Left side for prev, Right side for next (Invisible overlay) - DESKTOP ONLY */}
+            <div className="absolute inset-y-0 left-0 w-1/2 cursor-w-resize z-20 hidden md:block" onClick={handlePrev} />
+            <div className="absolute inset-y-0 right-0 w-1/2 cursor-e-resize z-20 hidden md:block" onClick={handleNext} />
             
             <img 
             src={album.images[currentIndex]} 

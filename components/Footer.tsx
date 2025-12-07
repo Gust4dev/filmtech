@@ -54,17 +54,7 @@ export const Footer: React.FC = () => {
                   <Phone className="w-4 h-4 text-red-600 shrink-0" />
                   <span className="text-white font-medium">(62) 9242-5852</span>
                 </li>
-                <li className="flex items-center gap-3">
-                  <GraduationCap className="w-4 h-4 text-red-600 shrink-0" />
-                  <a 
-                    href="https://filmtechexperience.com.br/filmtech-luxury-experience/"
-                    target="_blank"
-                    rel="noopener noreferrer" 
-                    className="text-white font-medium text-sm hover:text-red-600 transition-colors"
-                  >
-                    FilmTech Experience
-                  </a>
-                </li>
+
               </ul>
             </div>
 
