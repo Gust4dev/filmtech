@@ -1,4 +1,4 @@
-import { ServiceItem, PortfolioItem } from './types';
+import { PortfolioItem } from './types';
 
 export const BRAND_NAME = "FilmTech Luxury";
 export const PHONE_NUMBER = "5562982204604";
@@ -6,44 +6,6 @@ export const INSTAGRAM_URL = "https://www.instagram.com/filmtech_luxury/";
 export const TIKTOK_URL = "https://www.tiktok.com/@gustavofilmtech?_r=1&_t=ZS-91MdmSHOued";
 export const YOUTUBE_URL = "https://www.youtube.com/@filmtechprobrasil";
 
-export const SERVICES: ServiceItem[] = [
-  {
-    id: '1',
-    title: 'Lavagem Técnica',
-    description: 'Processo minucioso que remove sujeiras profundas sem agredir a pintura, utilizando produtos de pH neutro e técnicas de dois baldes.',
-    iconName: 'Droplets'
-  },
-  {
-    id: '2',
-    title: 'Higienização Interna',
-    description: 'Limpeza detalhada de estofados, teto, carpetes e painéis, eliminando ácaros, fungos e odores desagradáveis.',
-    iconName: 'Sparkles'
-  },
-  {
-    id: '3',
-    title: 'Vitrificação',
-    description: 'Proteção cerâmica de alta dureza para pintura, plásticos e bancos, garantindo brilho intenso e repelência à água por até 3 anos.',
-    iconName: 'ShieldCheck'
-  },
-  {
-    id: '4',
-    title: 'Polimento Técnico',
-    description: 'Correção de verniz para remoção de riscos superficiais, hologramas e oxidação, devolvendo a profundidade de cor original.',
-    iconName: 'Zap'
-  },
-  {
-    id: '5',
-    title: 'Oxi-Sanitização',
-    description: 'Uso de ozônio para esterilização completa do interior e sistema de ar-condicionado, matando 99.9% dos microrganismos.',
-    iconName: 'Wind'
-  },
-  {
-    id: '6',
-    title: 'Detalhe de Motor',
-    description: 'Limpeza segura e proteção dos componentes do motor, evitando ressecamento de borrachas e plásticos.',
-    iconName: 'Settings'
-  }
-];
 
 export const PORTFOLIO: PortfolioItem[] = [
   { 

@@ -2,16 +2,13 @@ import React, { useState, useEffect } from 'react';
 
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
-import { Services } from './components/Services';
-import { ExclusiveProjectCta } from './components/ExclusiveProjectCta';
 import { ComparisonSlider } from './components/ComparisonSlider';
-import { ProtectionEngineering } from './components/ProtectionEngineering';
 import { Portfolio } from './components/Portfolio';
+import { ExclusiveProjectCta } from './components/ExclusiveProjectCta';
+import { ProtectionEngineering } from './components/ProtectionEngineering';
 import { AuthorityStrip } from './components/AuthorityStrip';
 import { GoogleReviews } from './components/GoogleReviews';
 import { Footer } from './components/Footer';
-// import { FloatingWhatsapp } from './components/FloatingWhatsapp';
-
 const App: React.FC = () => {
   useEffect(() => {
     // Disable default browser scroll restoration
@@ -31,13 +28,11 @@ const App: React.FC = () => {
         <ComparisonSlider />
         <Portfolio />
         <ExclusiveProjectCta />
-        {/* <Services /> */}
         <ProtectionEngineering />
         <AuthorityStrip />
         <GoogleReviews />
       </main>
       <Footer />
-      {/* <FloatingWhatsapp /> */}
     </div>
   );
 };

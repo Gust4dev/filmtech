@@ -1,10 +1,3 @@
-export interface ServiceItem {
-  id: string;
-  title: string;
-  description: string;
-  iconName: string;
-}
-
 export interface PortfolioItem {
   id: string;
   images: string[];
