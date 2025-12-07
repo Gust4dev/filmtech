@@ -8,18 +8,7 @@ export const YOUTUBE_URL = "https://www.youtube.com/@filmtechprobrasil";
 
 
 export const PORTFOLIO: PortfolioItem[] = [
-  { 
-    id: '1', 
-    images: [
-      '/images/portfolio/porsche/gt3 (1).JPG',
-      '/images/portfolio/porsche/gt3 (2).JPG',
-      '/images/portfolio/porsche/gt3 (3).JPG',
-      '/images/portfolio/porsche/gt3 (4).JPG',
-      '/images/portfolio/porsche/gt3 (5).JPG',
-    ], 
-    title: 'Porsche GT3 RS - Envelopamento', 
-    instagramLink: '#' 
-  },
+
   { 
     id: '2', 
     images: [

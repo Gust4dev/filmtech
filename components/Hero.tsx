@@ -78,7 +78,7 @@ export const Hero: React.FC = () => {
         </div>
       </div>
 
-      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 animate-bounce text-stone-400 cursor-pointer" onClick={scrollToServices}>
+      <div className="absolute bottom-4 left-0 right-0 mx-auto w-fit animate-bounce text-stone-400 cursor-pointer" onClick={scrollToServices}>
         <ChevronDown size={32} />
       </div>
     </section>

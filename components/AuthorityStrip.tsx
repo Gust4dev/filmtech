@@ -1,6 +1,36 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { FadeIn } from './FadeIn';
 import { Car, ShieldCheck, Star } from 'lucide-react';
+
+const Counter = ({ value, suffix = '' }: { value: number, suffix?: string }) => {
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    const duration = 2000; // 2 seconds
+    const steps = 60;
+    const interval = duration / steps;
+    const increment = value / steps;
+    
+    let current = 0;
+    const timer = setInterval(() => {
+      current += increment;
+      if (current >= value) {
+        setCount(value);
+        clearInterval(timer);
+      } else {
+        setCount(Math.floor(current));
+      }
+    }, interval);
+
+    return () => clearInterval(timer);
+  }, [value]);
+
+  return (
+    <h3 className="text-5xl md:text-7xl font-black text-neutral-900 mb-2 brand-font uppercase tracking-tighter">
+      {count}{suffix}
+    </h3>
+  );
+};
 
 export const AuthorityStrip: React.FC = () => {
   return (
@@ -14,11 +44,9 @@ export const AuthorityStrip: React.FC = () => {
               <div className="mb-6 transform group-hover:-translate-y-2 transition-transform duration-500">
                 <Car className="w-16 h-16 text-neutral-900 stroke-[1]" />
               </div>
-              <h3 className="text-5xl md:text-7xl font-black text-neutral-900 mb-2 brand-font uppercase tracking-tighter">
-                +500
-              </h3>
+              <Counter value={3000} suffix="+" />
               <p className="text-neutral-600 text-xs font-bold uppercase tracking-[0.3em] border-t border-neutral-900/20 pt-4 mt-2">
-                Projetos Entregues
+                Clientes Atendidos
               </p>
             </div>
           </FadeIn>
