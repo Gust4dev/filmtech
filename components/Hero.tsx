@@ -13,7 +13,7 @@ export const Hero: React.FC = () => {
   };
 
   return (
-    <section className="relative h-auto min-h-[550px] md:h-screen flex items-center overflow-hidden bg-white">
+    <section className="relative h-auto min-h-[650px] md:h-screen flex items-center overflow-hidden bg-white">
       <div className="absolute inset-0 z-0">
         {/* Mobile Background */}
         <img 
@@ -78,7 +78,7 @@ export const Hero: React.FC = () => {
         </div>
       </div>
 
-      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce text-stone-400 cursor-pointer" onClick={scrollToServices}>
+      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 animate-bounce text-stone-400 cursor-pointer" onClick={scrollToServices}>
         <ChevronDown size={32} />
       </div>
     </section>
