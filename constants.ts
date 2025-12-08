@@ -12,9 +12,7 @@ export const PORTFOLIO: PortfolioItem[] = [
     id: '8', 
     images: [
       '/images/portfolio/porsche/gt3 (1).JPG',
-      '/images/portfolio/porsche/gt3 (2).JPG',
       '/images/portfolio/porsche/gt3 (3).JPG',
-      '/images/portfolio/porsche/gt3 (4).JPG',
       '/images/portfolio/porsche/gt3 (5).JPG',
       '/images/portfolio/porsche/gt3 (6).jpg',
       '/images/portfolio/porsche/gt3 (7).jpg',
@@ -58,6 +56,8 @@ export const PORTFOLIO: PortfolioItem[] = [
       '/images/portfolio/porsche-nardo/porsche-nardo (5).JPG',
       '/images/portfolio/porsche-nardo/porsche-nardo (6).JPG',
       '/images/portfolio/porsche-nardo/porsche-nardo (8).JPG',
+      '/images/portfolio/porsche-nardo/porsche-nardo1.JPG',
+      '/images/portfolio/porsche-nardo/porsche-nardo2.JPG',
     ], 
     title: 'Porsche 911 - Nardo Grey Full PPF', 
     instagramLink: '#' 

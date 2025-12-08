@@ -52,7 +52,7 @@ export const Navbar: React.FC = () => {
         </div>
 
         <button className={`md:hidden ${isScrolled ? 'text-stone-900' : 'text-stone-900'}`} onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
-          {mobileMenuOpen ? <X /> : <Menu />}
+          {mobileMenuOpen ? <X style={{ shapeRendering: 'geometricPrecision' }} /> : <Menu style={{ shapeRendering: 'geometricPrecision' }} />}
         </button>
       </div>
 

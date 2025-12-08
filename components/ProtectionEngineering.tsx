@@ -60,7 +60,7 @@ export const ProtectionEngineering: React.FC = () => {
                 <FadeIn delay={400}>
                   <div className="flex flex-col sm:flex-row gap-5 items-start">
                     <div className="w-16 h-16 bg-yellow-50 border border-yellow-100 rounded-xl flex items-center justify-center shrink-0 shadow-lg shadow-yellow-100/50 transition-colors">
-                      <Medal size={32} className="text-yellow-600 fill-yellow-400 animate-pulse-slow" />
+                      <Medal size={32} className="text-yellow-600 fill-yellow-400 animate-pulse-slow" style={{ shapeRendering: 'geometricPrecision' }} />
                     </div>
                     <div>
                       <h3 className="text-xl font-black uppercase text-gray-900 tracking-wide mb-2">

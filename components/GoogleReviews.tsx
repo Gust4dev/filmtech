@@ -25,13 +25,13 @@ const REVIEWS = [
 
 export const GoogleReviews: React.FC = () => {
   return (
-    <section className="py-24 bg-white border-t border-gray-100">
+    <section className="py-24 bg-white border-t border-gray-100 relative overflow-hidden">
       <div className="container mx-auto px-6">
         
         <div className="text-center mb-16">
           <FadeIn>
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-gray-50 rounded-full mb-6">
-               <Star className="w-4 h-4 text-yellow-500 fill-yellow-500" />
+               <span className="text-yellow-500 text-lg leading-none">★</span>
                <span className="text-sm font-bold text-gray-700">Google Reviews</span>
             </div>
             <h2 className="text-4xl font-black text-neutral-900 mb-4 brand-font uppercase tracking-widest">
@@ -44,24 +44,26 @@ export const GoogleReviews: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {REVIEWS.map((review, index) => (
             <FadeIn key={index} delay={index * 100}>
-              <div className="bg-gray-50 p-8 rounded-2xl relative group hover:shadow-lg transition-shadow duration-300">
-                <Quote className="absolute top-8 right-8 w-10 h-10 text-gray-200 group-hover:text-red-600/20 transition-colors" />
-                
-                <div className="flex gap-1 mb-6">
-                  {[...Array(review.rating)].map((_, i) => (
-                    <Star key={i} className="w-4 h-4 text-yellow-500 fill-yellow-500" />
-                  ))}
-                </div>
+                <div className="bg-gray-50 p-8 rounded-2xl relative group hover:shadow-lg transition-shadow duration-300">
+                    <span className="absolute top-8 right-8 text-6xl text-gray-200 group-hover:text-red-600/20 transition-colors font-serif leading-none">
+                    ❝
+                    </span>
+                    
+                    <div className="flex gap-1 mb-6">
+                    {[...Array(review.rating)].map((_, i) => (
+                        <span key={i} className="text-yellow-500 text-lg leading-none">★</span>
+                    ))}
+                    </div>
 
-                <p className="text-gray-600 mb-8 leading-relaxed font-medium">
-                  "{review.text}"
-                </p>
+                    <p className="text-gray-600 mb-8 leading-relaxed font-medium">
+                    "{review.text}"
+                    </p>
 
-                <div className="mt-auto border-t border-gray-200 pt-6">
-                  <p className="font-bold text-neutral-900">{review.name}</p>
-                  <p className="text-xs text-red-600 font-bold uppercase tracking-wider mt-1">{review.role}</p>
+                    <div className="mt-auto border-t border-gray-200 pt-6">
+                    <p className="font-bold text-neutral-900">{review.name}</p>
+                    <p className="text-xs text-red-600 font-bold uppercase tracking-wider mt-1">{review.role}</p>
+                    </div>
                 </div>
-              </div>
             </FadeIn>
           ))}
         </div>

@@ -131,7 +131,7 @@ export const ComparisonSlider: React.FC = () => {
                   style={{ left: `${sliderPosition}%` }}
                 >
                   <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-8 h-8 bg-red-600 rounded-full flex items-center justify-center border-2 border-white shadow-lg">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-white">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-white" style={{ shapeRendering: 'geometricPrecision' }}>
                       <polyline points="15 18 9 12 15 6"></polyline>
                       <polyline points="9 18 3 12 9 6" opacity="0"></polyline>
                       <path d="M4 12h16" stroke="transparent"></path> 

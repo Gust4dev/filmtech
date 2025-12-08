@@ -1,5 +1,5 @@
 import React from 'react';
-import { MapPin, Phone, Clock, Youtube, Instagram, Code, GraduationCap } from 'lucide-react';
+import { MapPin, Phone, Clock, Youtube, Instagram, Code, MessageCircle } from 'lucide-react';
 import { INSTAGRAM_URL, YOUTUBE_URL, TIKTOK_URL } from '../constants';
 
 export const Footer: React.FC = () => {
@@ -22,45 +22,45 @@ export const Footer: React.FC = () => {
             <div className="flex gap-4">
                {/* Instagram */}
                <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded bg-neutral-900 flex items-center justify-center text-white hover:bg-red-600 transition-colors cursor-pointer">
-                 <Instagram size={20} />
+                 <Instagram size={20} style={{ shapeRendering: 'geometricPrecision' }} />
                </a>
                
                {/* YouTube */}
                <a href={YOUTUBE_URL} target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded bg-neutral-900 flex items-center justify-center text-white hover:bg-red-600 transition-colors cursor-pointer">
-                 <Youtube size={20} />
+                 <Youtube size={20} style={{ shapeRendering: 'geometricPrecision' }} />
                </a>
 
                {/* TikTok */}
                <a href={TIKTOK_URL} target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded bg-neutral-900 flex items-center justify-center text-white hover:bg-red-600 transition-colors cursor-pointer">
-                 <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                 <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style={{ shapeRendering: 'geometricPrecision' }}>
                     <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
                  </svg>
                </a>
             </div>
           </div>
 
-          {/* Contact & Hours Column (4 cols) - Reduced to 4 to give space to Map */}
-          <div className="lg:col-span-4 lg:pl-16 lg:border-l lg:border-neutral-800">
+
+          {/* Contact & Hours Column (4 cols) */}
+          <div className="lg:col-span-4 lg:pl-16 lg:border-l lg:border-white/10">
             <div className="mb-12">
-              <h3 className="text-white font-bold mb-6">
-                CONTATO
+              <h3 className="text-white font-bold mb-6 flex items-center gap-2">
+                <MessageCircle className="text-red-600" size={18} style={{ shapeRendering: 'geometricPrecision' }} /> CONTATO
               </h3>
               <ul className="space-y-4">
                 <li className="flex items-start gap-3 text-gray-400 text-sm leading-relaxed">
-                  <MapPin className="w-5 h-5 text-red-600 shrink-0" />
+                  <MapPin className="w-5 h-5 text-red-600 shrink-0" style={{ shapeRendering: 'geometricPrecision' }} />
                   <span>R. S-1, qd 139 - lt 21 - St. Bela Vista<br/>Goiânia - GO, 74823-310</span>
                 </li>
                 <li className="flex items-center gap-3 text-gray-400 text-sm">
-                  <Phone className="w-4 h-4 text-red-600 shrink-0" />
-                  <span className="text-white font-medium">(62) 9242-5852</span>
+                  <Phone className="w-4 h-4 text-red-600 shrink-0" style={{ shapeRendering: 'geometricPrecision' }} />
+                  <span className="text-white font-medium">(62) 98220-4604</span>
                 </li>
-
               </ul>
             </div>
 
             <div>
               <h3 className="text-white font-bold mb-6 flex items-center gap-2">
-                <Clock className="text-red-600" size={18} /> HORÁRIOS
+                <Clock className="text-red-600" size={18} style={{ shapeRendering: 'geometricPrecision' }} /> HORÁRIOS
               </h3>
               <div className="grid grid-cols-[100px_1fr] gap-y-3 text-sm">
                  <div className="text-gray-500">Segunda</div>
@@ -88,7 +88,7 @@ export const Footer: React.FC = () => {
           </div>
 
           {/* Map Column (5 cols) - Expanded and Cropped */}
-          <div className="lg:col-span-5 h-full min-h-[350px] relative rounded-2xl overflow-hidden group lg:border-l lg:border-neutral-800 lg:ml-8">
+          <div className="lg:col-span-5 h-full min-h-[350px] relative rounded-2xl overflow-hidden group lg:ml-8">
              {/* Wrapper to crop iframe edges - Aggressive crop to hide Google UI */}
             <div className="absolute inset-[-25%] w-[150%] h-[150%]">
               <iframe 
@@ -118,7 +118,7 @@ export const Footer: React.FC = () => {
 
         </div>
 
-        <div id="footer-copyright" className="pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+        <div id="footer-copyright" className="mt-16 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 border-t border-white/10">
           <p className="text-neutral-600 text-sm">
             © {new Date().getFullYear()} FilmTech Luxury. Todos os direitos reservados.
           </p>
@@ -129,7 +129,7 @@ export const Footer: React.FC = () => {
               rel="noopener noreferrer" 
               className="group flex items-center gap-2 text-neutral-400 hover:text-white transition-colors duration-300"
             >
-              <Code size={16} className="text-red-600 group-hover:scale-110 transition-transform" />
+              <Code size={16} className="text-red-600 group-hover:scale-110 transition-transform" style={{ shapeRendering: 'geometricPrecision' }} />
               <span className="font-medium">Desenvolvido por <span className="text-neutral-200 group-hover:text-red-500 transition-colors">Gusta</span></span>
             </a>
           </div>
@@ -138,3 +138,4 @@ export const Footer: React.FC = () => {
     </footer>
   );
 };
+// Force refresh

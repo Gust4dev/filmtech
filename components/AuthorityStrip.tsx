@@ -42,7 +42,7 @@ export const AuthorityStrip: React.FC = () => {
           <FadeIn>
             <div className="flex flex-col items-center group">
               <div className="mb-6 transform group-hover:-translate-y-2 transition-transform duration-500">
-                <Car className="w-16 h-16 text-neutral-900 stroke-[1]" />
+                <Car className="w-16 h-16 text-neutral-900 stroke-[1]" style={{ shapeRendering: 'geometricPrecision' }} />
               </div>
               <Counter value={3000} suffix="+" />
               <p className="text-neutral-600 text-xs font-bold uppercase tracking-[0.3em] border-t border-neutral-900/20 pt-4 mt-2">
@@ -58,7 +58,7 @@ export const AuthorityStrip: React.FC = () => {
               <div className="hidden md:block absolute right-0 top-1/2 -translate-y-1/2 h-20 w-px bg-gradient-to-b from-transparent via-neutral-900/20 to-transparent"></div>
 
               <div className="mb-6 transform group-hover:-translate-y-2 transition-transform duration-500">
-                <ShieldCheck className="w-16 h-16 text-neutral-900 stroke-[1]" />
+                <ShieldCheck className="w-16 h-16 text-neutral-900 stroke-[1]" style={{ shapeRendering: 'geometricPrecision' }} />
               </div>
               <h3 className="text-5xl md:text-7xl font-black text-neutral-900 mb-2 brand-font uppercase tracking-tighter">
                 +2.5K
@@ -72,7 +72,7 @@ export const AuthorityStrip: React.FC = () => {
           <FadeIn delay={200}>
             <div className="flex flex-col items-center group">
               <div className="mb-6 transform group-hover:-translate-y-2 transition-transform duration-500">
-                <Star className="w-16 h-16 text-neutral-900 stroke-[1]" />
+                <span className="text-[4rem] leading-none text-neutral-900">★</span>
               </div>
               <div className="flex flex-col items-center">
                 <h3 className="text-5xl md:text-7xl font-black text-neutral-900 mb-2 brand-font uppercase tracking-tighter">
@@ -80,7 +80,7 @@ export const AuthorityStrip: React.FC = () => {
                 </h3>
                 <div className="flex gap-1 mb-2">
                    {[1,2,3,4,5].map((_, i) => (
-                     <Star key={i} className="w-4 h-4 fill-neutral-900 text-neutral-900" />
+                     <span key={i} className="text-neutral-900 text-sm leading-none">★</span>
                    ))}
                 </div>
               </div>

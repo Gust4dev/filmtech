@@ -23,7 +23,7 @@ export const ExclusiveProjectCta: React.FC = () => {
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-green-600 text-white font-bold text-sm tracking-widest uppercase hover:bg-green-700 transition-all rounded shadow-lg hover:shadow-green-600/20"
             >
-              <MessageCircle size={20} />
+              <MessageCircle size={20} style={{ shapeRendering: 'geometricPrecision' }} />
               Falar com Especialista
             </a>
           </div>

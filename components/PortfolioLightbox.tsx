@@ -89,7 +89,7 @@ export const PortfolioLightbox: React.FC<PortfolioLightboxProps> = ({ isOpen, al
         <div className="text-white pointer-events-auto">
           <h3 className="text-xl font-bold">{album.title}</h3>
           <p className="text-sm text-stone-400 brand-font flex items-center gap-2">
-            <ImageIcon size={14} />
+            <ImageIcon size={14} style={{ shapeRendering: 'geometricPrecision' }} />
             {imageIndex + 1} / {album.images.length}
           </p>
         </div>
@@ -97,7 +97,7 @@ export const PortfolioLightbox: React.FC<PortfolioLightboxProps> = ({ isOpen, al
           onClick={onClose}
           className="p-2 bg-white/10 hover:bg-white/20 rounded-full text-white transition-colors pointer-events-auto"
         >
-          <X size={24} />
+          <X size={24} style={{ shapeRendering: 'geometricPrecision' }} />
         </button>
       </div>
 
@@ -125,7 +125,7 @@ export const PortfolioLightbox: React.FC<PortfolioLightboxProps> = ({ isOpen, al
           onClick={(e) => { e.stopPropagation(); paginate(-1); }}
           className="absolute left-8 p-3 bg-black/50 hover:bg-red-600 rounded-full text-white transition-all transform hover:scale-110 z-40 hidden md:block border border-white/10 hover:border-red-600 pointer-events-auto"
         >
-          <ChevronLeft size={32} />
+          <ChevronLeft size={32} style={{ shapeRendering: 'geometricPrecision' }} />
         </button>
 
         <div className="relative w-full h-full flex items-center justify-center">
@@ -179,7 +179,7 @@ export const PortfolioLightbox: React.FC<PortfolioLightboxProps> = ({ isOpen, al
           onClick={(e) => { e.stopPropagation(); paginate(1); }}
           className="absolute right-8 p-3 bg-black/50 hover:bg-red-600 rounded-full text-white transition-all transform hover:scale-110 z-40 hidden md:block border border-white/10 hover:border-red-600 pointer-events-auto"
         >
-          <ChevronRight size={32} />
+          <ChevronRight size={32} style={{ shapeRendering: 'geometricPrecision' }} />
         </button>
       </div>
 

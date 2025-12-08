@@ -63,7 +63,7 @@ export const Hero: React.FC = () => {
                 className="group relative px-5 py-3 sm:px-8 sm:py-4 bg-red-600 text-white font-bold text-xs sm:text-sm tracking-wider uppercase overflow-hidden hover:bg-red-700 transition-all duration-300 shadow-xl shadow-red-600/20"
               >
                 <span className="relative z-10 flex items-center gap-2">
-                  Solicitar Orçamento <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4 group-hover:translate-x-1 transition-transform" />
+                  Solicitar Orçamento <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4 group-hover:translate-x-1 transition-transform" style={{ shapeRendering: 'geometricPrecision' }} />
                 </span>
               </button>
               
@@ -80,13 +80,13 @@ export const Hero: React.FC = () => {
         
         {/* Mobile Arrow: Static position for tight spacing, full width centering */}
         <div className="md:hidden mt-8 mb-8 w-full animate-bounce text-stone-400 cursor-pointer flex justify-center" onClick={scrollToServices}>
-            <ChevronDown size={28} />
+            <ChevronDown size={28} style={{ shapeRendering: 'geometricPrecision' }} />
         </div>
       </div>
 
       {/* Desktop Arrow: Absolute bottom */}
       <div className="hidden md:block absolute bottom-4 left-0 right-0 mx-auto w-fit animate-bounce text-stone-400 cursor-pointer" onClick={scrollToServices}>
-        <ChevronDown size={32} />
+        <ChevronDown size={32} style={{ shapeRendering: 'geometricPrecision' }} />
       </div>
     </section>
   );

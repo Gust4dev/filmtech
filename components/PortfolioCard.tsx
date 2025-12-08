@@ -192,7 +192,7 @@ export const PortfolioCard: React.FC<PortfolioCardProps> = ({ item, index, onCli
       <div className="mb-4 flex flex-col items-center">
          <h3 className="text-xl font-bold text-dark-lead uppercase tracking-wider text-center h-[5.5rem] flex items-center justify-center px-4 leading-tight">{item.title}</h3>
          <div className="flex items-center gap-2 text-red-600 text-xs font-bold uppercase tracking-widest">
-            <Layers size={12} />
+            <Layers size={12} style={{ shapeRendering: 'geometricPrecision' }} />
             <span>{count} Imagens</span>
          </div>
       </div>
@@ -229,7 +229,7 @@ export const PortfolioCard: React.FC<PortfolioCardProps> = ({ item, index, onCli
                  <>
                     <div className={`absolute inset-0 bg-black/40 transition-opacity duration-300 ${isHovering ? 'opacity-100' : 'opacity-0'} flex items-center justify-center`}>
                        <div className="bg-red-600/90 text-white p-3 rounded-full shadow-lg transform scale-0 group-hover:scale-100 transition-transform duration-300">
-                          <Maximize2 size={24} />
+                          <Maximize2 size={24} style={{ shapeRendering: 'geometricPrecision' }} />
                        </div>
                     </div>
                     <div className={`absolute bottom-4 right-4 bg-black/50 backdrop-blur px-3 py-1 rounded-full text-white text-xs font-bold uppercase tracking-widest transition-opacity duration-300 ${isHovering ? 'opacity-0' : 'opacity-100'}`}>

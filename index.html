@@ -63,6 +63,15 @@
         border: 2px solid #fff;
         box-shadow: 0 0 10px rgba(0,0,0,0.2);
       }
+      
+      /* Global Fix for SVG Rendering Artifacts (Diagonal Lines) */
+      svg {
+        shape-rendering: geometricPrecision !important; /* Restore smooth edges */
+        transform: translateZ(0); /* Force GPU layer */
+        backface-visibility: hidden; /* Hide jagged backface */
+        outline: 1px solid transparent; /* Trick to smooth anti-aliasing */
+        overflow: visible !important;
+      }
     </style>
     <script>
       tailwind.config = {

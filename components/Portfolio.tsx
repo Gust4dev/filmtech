@@ -40,7 +40,7 @@ export const Portfolio: React.FC = () => {
               rel="noreferrer"
               className="px-6 py-3 border-2 border-stone-200 rounded-full text-dark-lead text-sm font-bold hover:bg-stone-900 hover:text-white hover:border-stone-900 transition-all flex items-center gap-2"
             >
-              <Instagram size={18} /> @filmtech_luxury
+              <Instagram size={18} style={{ shapeRendering: 'geometricPrecision' }} /> @filmtech_luxury
             </a>
           </FadeIn>
         </div>
