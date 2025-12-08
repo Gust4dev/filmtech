@@ -27,7 +27,8 @@ export const PortfolioLightbox: React.FC<PortfolioLightboxProps> = ({ isOpen, al
   }, []);
 
   // Constants for drag physics
-  const swipeConfidenceThreshold = 10000;
+  // Lower threshold for easier swiping
+  const swipeConfidenceThreshold = 300; 
   const swipePower = (offset: number, velocity: number) => {
     return Math.abs(offset) * velocity;
   };
@@ -76,9 +77,9 @@ export const PortfolioLightbox: React.FC<PortfolioLightboxProps> = ({ isOpen, al
 
   const variants = {
     enter: (direction: number) => ({
-      x: direction === 0 ? 0 : (direction > 0 ? 1000 : -1000), // Direction 0 (initial) just appears
+      x: direction === 0 ? 0 : (direction > 0 ? 1000 : -1000), 
       opacity: 0,
-      scale: 0.9,
+      scale: 1, // Removed scale effect for performance
     }),
     center: {
       zIndex: 1,
@@ -90,12 +91,13 @@ export const PortfolioLightbox: React.FC<PortfolioLightboxProps> = ({ isOpen, al
       zIndex: 0,
       x: direction < 0 ? 1000 : -1000,
       opacity: 0,
-      scale: 0.9,
+      scale: 1, // Removed scale effect for performance
     })
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-black/95 backdrop-blur-md animate-in fade-in duration-300">
+    // Performance: Removed backdrop-blur-md which kills mobile GPU
+    <div className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-black animate-in fade-in duration-300">
       
       {/* Top Bar */}
       <div className="absolute top-0 left-0 right-0 p-6 flex justify-between items-center z-50 bg-gradient-to-b from-black/80 to-transparent pointer-events-none">
@@ -128,16 +130,6 @@ export const PortfolioLightbox: React.FC<PortfolioLightboxProps> = ({ isOpen, al
         <div className="relative w-full h-full flex items-center justify-center">
             
             <AnimatePresence initial={false} custom={direction} mode="popLayout">
-              {/* Wraps the image to allow dragging on the "void" areas too if needed, 
-                  but mainly ensures the drag constraint logic is clean. 
-                  However, standard swipers usually drag the slide itself. 
-                  Given the request for "Instagram style", dragging the IMAGE is primary. 
-                  If we also want to allow dragging the black space, we'd need the whole container to move.
-                  Moving the whole container is complex for AnimatePresence.
-                  
-                  Compromise: We expand the motion.div to be full size of container, 
-                  and center the image inside it.
-              */}
               <motion.div
                 key={currentIndex}
                 custom={direction}
@@ -150,41 +142,39 @@ export const PortfolioLightbox: React.FC<PortfolioLightboxProps> = ({ isOpen, al
                   opacity: { duration: 0.2 }
                 }}
                 // Drag Logic
-                drag={isMobile ? "x" : false} // Disable drag on desktop
+                drag="x" // Enable drag on all devices for easier testing
                 dragConstraints={{ left: 0, right: 0 }}
-                dragElastic={1}
+                dragElastic={1} // 1:1 Movement (No resistance)
+                dragMomentum={false} // Stop immediately on release (no sliding)
                 onDragEnd={(e, { offset, velocity }) => {
-                  const swipe = swipePower(offset.x, velocity.x);
-
-                  if (swipe < -swipeConfidenceThreshold) {
+                  // Simple distance check: 50px threshold
+                  // This is much more forgiving than velocity-based checks
+                  if (offset.x < -50) {
                     handleNext();
-                  } else if (swipe > swipeConfidenceThreshold) {
+                  } else if (offset.x > 50) {
                     handlePrev();
                   }
                 }}
                 // Mobile Tap: Left 30% / Right 30%
                 onTap={(event, info) => {
-                   if (!isMobile) return; // Desktop uses arrows
-
+                   // Keep tap logic for mobile convenience, but drag works everywhere now
                    const screenWidth = window.innerWidth;
                    const x = info.point.x;
                    
-                   // Left 30%
                    if (x < screenWidth * 0.3) {
                       handlePrev();
-                   // Right 30%
                    } else if (x > screenWidth * 0.7) {
                       handleNext();
                    }
                 }}
-                className="absolute inset-0 flex items-center justify-center w-full h-full cursor-grab active:cursor-grabbing touch-none"
+                // Performance: will-change-transform
+                className="absolute inset-0 flex items-center justify-center w-full h-full cursor-grab active:cursor-grabbing touch-none will-change-transform"
               >
                   <img 
                     src={album.images[currentIndex]} 
                     alt={`${album.title} - View ${currentIndex + 1}`}
                     className="max-h-full max-w-full object-contain shadow-2xl select-none pointer-events-none" 
                   />
-                  {/* pointer-events-none on IMG ensures the motion.div captures the drag/taps cleanly */}
               </motion.div>
             </AnimatePresence>
         </div>
@@ -198,7 +188,7 @@ export const PortfolioLightbox: React.FC<PortfolioLightboxProps> = ({ isOpen, al
       </div>
 
       {/* Thumbnails Strip */}
-      <div className="w-full h-auto bg-stone-900/90 border-t border-white/10 p-4 flex items-center justify-center z-50 overflow-x-auto">
+      <div className="w-full h-auto bg-stone-900 border-t border-white/10 p-4 flex items-center justify-center z-50 overflow-x-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none']">
         <div className="flex gap-3 px-4 min-w-min mx-auto">
             {album.images.map((img, idx) => (
             <button
