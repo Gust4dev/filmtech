@@ -54,12 +54,11 @@ export const PORTFOLIO: PortfolioItem[] = [
       '/images/portfolio/porsche-nardo/porsche-nardo (3).JPG',
       '/images/portfolio/porsche-nardo/porsche-nardo (4).JPG',
       '/images/portfolio/porsche-nardo/porsche-nardo (5).JPG',
-      '/images/portfolio/porsche-nardo/porsche-nardo (6).JPG',
       '/images/portfolio/porsche-nardo/porsche-nardo (8).JPG',
       '/images/portfolio/porsche-nardo/porsche-nardo1.JPG',
       '/images/portfolio/porsche-nardo/porsche-nardo2.JPG',
     ], 
-    title: 'Porsche 911 - Nardo Grey Full PPF', 
+    title: 'Porsche Cayman S Kit GT4 - Envelopamento full', 
     instagramLink: '#' 
   },
   { 
