@@ -13,7 +13,7 @@ export const Hero: React.FC = () => {
   };
 
   return (
-    <section className="relative h-auto min-h-[650px] md:h-screen flex items-center overflow-hidden bg-white">
+    <section className="relative h-auto md:h-screen flex items-center overflow-hidden bg-white md:pb-0">
       <div className="absolute inset-0 z-0">
         {/* Mobile Background */}
         <img 
@@ -75,10 +75,17 @@ export const Hero: React.FC = () => {
               </button>
             </div>
           </FadeIn>
+          
+        </div>
+        
+        {/* Mobile Arrow: Static position for tight spacing, full width centering */}
+        <div className="md:hidden mt-8 mb-8 w-full animate-bounce text-stone-400 cursor-pointer flex justify-center" onClick={scrollToServices}>
+            <ChevronDown size={28} />
         </div>
       </div>
 
-      <div className="absolute bottom-4 left-0 right-0 mx-auto w-fit animate-bounce text-stone-400 cursor-pointer" onClick={scrollToServices}>
+      {/* Desktop Arrow: Absolute bottom */}
+      <div className="hidden md:block absolute bottom-4 left-0 right-0 mx-auto w-fit animate-bounce text-stone-400 cursor-pointer" onClick={scrollToServices}>
         <ChevronDown size={32} />
       </div>
     </section>

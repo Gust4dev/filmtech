@@ -13,8 +13,14 @@ export const ComparisonSlider: React.FC = () => {
   };
 
   return (
-    <section className="py-24 bg-concrete overflow-hidden">
-      <div className="container mx-auto px-6">
+    <section className="pt-0 pb-24 bg-concrete relative">
+      {/* Connector Gradient: Bridges Hero Image -> White */}
+      <div className="absolute -top-24 left-0 w-full h-24 bg-gradient-to-b from-transparent to-white z-0 pointer-events-none"></div>
+      
+      {/* Top Gradient Fade: White -> Grey (Bg) */}
+      <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-white to-transparent z-0 pointer-events-none"></div>
+
+      <div className="container mx-auto px-6 relative z-10">
         <div className="flex flex-col md:flex-row items-center gap-12">
           
           <div className="w-full md:w-1/3 space-y-6">
