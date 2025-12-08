@@ -9,77 +9,61 @@ interface PortfolioLightboxProps {
   onClose: () => void;
 }
 
+// Helper to wrap index safely
+const wrap = (min: number, max: number, v: number) => {
+  const rangeSize = max - min;
+  return ((((v - min) % rangeSize) + rangeSize) % rangeSize) + min;
+};
+
 export const PortfolioLightbox: React.FC<PortfolioLightboxProps> = ({ isOpen, album, onClose }) => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [direction, setDirection] = useState(0);
+  const [[page, direction], setPage] = useState([0, 0]);
   const [isMobile, setIsMobile] = useState(false);
 
-  // Check for mobile device (touch only or small screen) to enable/disable drag
+  // Check for mobile
   useEffect(() => {
     const checkMobile = () => {
-      // Coarse pointer usually creates touch events, or max-width for styling
       setIsMobile(window.matchMedia('(pointer: coarse)').matches || window.innerWidth < 768);
     };
-    
-    checkMobile(); // Initial check
+    checkMobile();
     window.addEventListener('resize', checkMobile);
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
-  // Constants for drag physics
-  // Lower threshold for easier swiping
-  const swipeConfidenceThreshold = 300; 
-  const swipePower = (offset: number, velocity: number) => {
-    return Math.abs(offset) * velocity;
-  };
-
-  // Reset index when album opens
+  // We only run this reset when the album changes or opens
   useEffect(() => {
-    if (isOpen && album) {
-      setCurrentIndex(0);
-      setDirection(0);
-      document.body.style.overflow = 'hidden'; // Lock scroll
+    if (isOpen) {
+      setPage([0, 0]);
+      document.body.style.overflow = 'hidden';
     } else {
-      document.body.style.overflow = ''; // Unlock scroll
-    }
-    return () => {
       document.body.style.overflow = '';
-    };
+    }
+    return () => { document.body.style.overflow = ''; };
   }, [isOpen, album]);
 
-  const handleNext = useCallback(() => {
-    if (!album) return;
-    setDirection(1);
-    setCurrentIndex((prev) => (prev + 1) % album.images.length);
-  }, [album]);
+  const imageIndex = wrap(0, album?.images.length || 0, page);
 
-  const handlePrev = useCallback(() => {
-    if (!album) return;
-    setDirection(-1);
-    setCurrentIndex((prev) => (prev - 1 + album.images.length) % album.images.length);
-  }, [album]);
+  const paginate = (newDirection: number) => {
+    setPage([page + newDirection, newDirection]);
+  };
 
-  // Keyboard navigation
-  useEffect(() => {
+  const handleKeyDown = (e: React.KeyboardEvent | KeyboardEvent) => {
     if (!isOpen) return;
+    if (e.key === 'Escape') onClose();
+    if (e.key === 'ArrowRight') paginate(1);
+    if (e.key === 'ArrowLeft') paginate(-1);
+  };
 
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') onClose();
-      if (e.key === 'ArrowRight') handleNext();
-      if (e.key === 'ArrowLeft') handlePrev();
-    };
-
+  // Attach global key listener
+  useEffect(() => {
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [isOpen, onClose, handleNext, handlePrev]);
-
-  if (!isOpen || !album) return null;
+  }, [page, isOpen]);
 
   const variants = {
     enter: (direction: number) => ({
-      x: direction === 0 ? 0 : (direction > 0 ? 1000 : -1000), 
+      x: direction > 0 ? 1000 : -1000,
       opacity: 0,
-      scale: 1, // Removed scale effect for performance
+      scale: 1, 
     }),
     center: {
       zIndex: 1,
@@ -91,12 +75,13 @@ export const PortfolioLightbox: React.FC<PortfolioLightboxProps> = ({ isOpen, al
       zIndex: 0,
       x: direction < 0 ? 1000 : -1000,
       opacity: 0,
-      scale: 1, // Removed scale effect for performance
+      scale: 1,
     })
   };
 
+  if (!isOpen || !album) return null;
+
   return (
-    // Performance: Removed backdrop-blur-md which kills mobile GPU
     <div className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-black animate-in fade-in duration-300">
       
       {/* Top Bar */}
@@ -105,7 +90,7 @@ export const PortfolioLightbox: React.FC<PortfolioLightboxProps> = ({ isOpen, al
           <h3 className="text-xl font-bold">{album.title}</h3>
           <p className="text-sm text-stone-400 brand-font flex items-center gap-2">
             <ImageIcon size={14} />
-            {currentIndex + 1} / {album.images.length}
+            {imageIndex + 1} / {album.images.length}
           </p>
         </div>
         <button 
@@ -119,19 +104,34 @@ export const PortfolioLightbox: React.FC<PortfolioLightboxProps> = ({ isOpen, al
       {/* Main Image Container */}
       <div className="relative flex-1 w-full flex items-center justify-center overflow-hidden">
         
-        {/* Desktop Navigation Arrows */}
+        {/* Desktop Click Navigation Zones (Invisible) */}
+        {!isMobile && (
+          <>
+            <div 
+              className="absolute left-0 top-0 bottom-0 w-1/2 z-30 cursor-pointer"
+              onClick={() => paginate(-1)}
+              title="Previous"
+            ></div>
+            <div 
+              className="absolute right-0 top-0 bottom-0 w-1/2 z-30 cursor-pointer" 
+              onClick={() => paginate(1)}
+              title="Next"
+            ></div>
+          </>
+        )}
+
+        {/* Desktop Navigation Arrows (Visual Only now, acts as overlay on zones) */}
         <button 
-          onClick={handlePrev}
-          className="absolute left-8 p-3 bg-black/50 hover:bg-red-600 rounded-full text-white transition-all transform hover:scale-110 z-40 hidden md:block border border-white/10 hover:border-red-600"
+          onClick={(e) => { e.stopPropagation(); paginate(-1); }}
+          className="absolute left-8 p-3 bg-black/50 hover:bg-red-600 rounded-full text-white transition-all transform hover:scale-110 z-40 hidden md:block border border-white/10 hover:border-red-600 pointer-events-auto"
         >
           <ChevronLeft size={32} />
         </button>
 
         <div className="relative w-full h-full flex items-center justify-center">
-            
             <AnimatePresence initial={false} custom={direction} mode="popLayout">
               <motion.div
-                key={currentIndex}
+                key={page} // Key is page, ensures animation triggers always
                 custom={direction}
                 variants={variants}
                 initial="enter"
@@ -141,38 +141,34 @@ export const PortfolioLightbox: React.FC<PortfolioLightboxProps> = ({ isOpen, al
                   x: { type: "spring", stiffness: 300, damping: 30 },
                   opacity: { duration: 0.2 }
                 }}
-                // Drag Logic
-                drag="x" // Enable drag on all devices for easier testing
+                // Drag Logic: DISABLED on Desktop
+                drag={isMobile ? "x" : false} 
                 dragConstraints={{ left: 0, right: 0 }}
-                dragElastic={1} // 1:1 Movement (No resistance)
-                dragMomentum={false} // Stop immediately on release (no sliding)
+                dragElastic={1}
+                dragMomentum={false}
                 onDragEnd={(e, { offset, velocity }) => {
-                  // Simple distance check: 50px threshold
-                  // This is much more forgiving than velocity-based checks
-                  if (offset.x < -50) {
-                    handleNext();
-                  } else if (offset.x > 50) {
-                    handlePrev();
-                  }
-                }}
-                // Mobile Tap: Left 30% / Right 30%
-                onTap={(event, info) => {
-                   // Keep tap logic for mobile convenience, but drag works everywhere now
-                   const screenWidth = window.innerWidth;
-                   const x = info.point.x;
-                   
-                   if (x < screenWidth * 0.3) {
-                      handlePrev();
-                   } else if (x > screenWidth * 0.7) {
-                      handleNext();
+                   if (!isMobile) return;
+                   const swipe = offset.x;
+                   const swipeVelocity = velocity.x;
+
+                   // 1. Priority: Distance (Long Swipes) - Always trust the visual drag
+                   if (swipe < -50) {
+                     paginate(1);
+                   } else if (swipe > 50) {
+                     paginate(-1);
+                   } 
+                   // 2. Secondary: Velocity (Short Flicks) - Only if distance wasn't enough
+                   else if (swipeVelocity < -500) {
+                     paginate(1);
+                   } else if (swipeVelocity > 500) {
+                     paginate(-1);
                    }
                 }}
-                // Performance: will-change-transform
-                className="absolute inset-0 flex items-center justify-center w-full h-full cursor-grab active:cursor-grabbing touch-none will-change-transform"
+                className="absolute inset-0 flex items-center justify-center w-full h-full cursor-grab active:cursor-grabbing touch-none will-change-transform z-20 pointer-events-auto"
               >
                   <img 
-                    src={album.images[currentIndex]} 
-                    alt={`${album.title} - View ${currentIndex + 1}`}
+                    src={album.images[imageIndex]} 
+                    alt={`${album.title} - View ${imageIndex + 1}`}
                     className="max-h-full max-w-full object-contain shadow-2xl select-none pointer-events-none" 
                   />
               </motion.div>
@@ -180,8 +176,8 @@ export const PortfolioLightbox: React.FC<PortfolioLightboxProps> = ({ isOpen, al
         </div>
 
         <button 
-          onClick={handleNext}
-          className="absolute right-8 p-3 bg-black/50 hover:bg-red-600 rounded-full text-white transition-all transform hover:scale-110 z-40 hidden md:block border border-white/10 hover:border-red-600"
+          onClick={(e) => { e.stopPropagation(); paginate(1); }}
+          className="absolute right-8 p-3 bg-black/50 hover:bg-red-600 rounded-full text-white transition-all transform hover:scale-110 z-40 hidden md:block border border-white/10 hover:border-red-600 pointer-events-auto"
         >
           <ChevronRight size={32} />
         </button>
@@ -194,11 +190,19 @@ export const PortfolioLightbox: React.FC<PortfolioLightboxProps> = ({ isOpen, al
             <button
                 key={idx}
                 onClick={() => {
-                  setDirection(idx > currentIndex ? 1 : -1);
-                  setCurrentIndex(idx);
+                   // Calculate direction based on current page vs target index
+                   // Simplistic approach: if target > current index, go right
+                   // But since we use 'page' (which can be infinite), we should just setPage directly?
+                   // Problem with paginate is it relies on being relative.
+                   // Ideally we find the closest page number that matches this index.
+                   // But for simplicity in this artifact, we reset page to the target index if it's within range, 
+                   // or we just calculate the difference.
+                   const diff = idx - imageIndex; 
+                   // We add diff to page.
+                   setPage([page + diff, diff > 0 ? 1 : -1]);
                 }}
                 className={`flex-shrink-0 relative w-16 h-12 md:w-24 md:h-20 rounded-lg overflow-hidden transition-all duration-300 border-2 ${
-                idx === currentIndex 
+                idx === imageIndex 
                     ? 'border-red-600 scale-110 opacity-100 ring-2 ring-red-600/50 z-10' 
                     : 'border-transparent opacity-40 hover:opacity-100 hover:scale-105'
                 }`}

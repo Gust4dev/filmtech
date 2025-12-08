@@ -3,7 +3,8 @@ import { FadeIn } from './FadeIn';
 
 export const ComparisonSlider: React.FC = () => {
   const [sliderPosition, setSliderPosition] = useState(50);
-
+  const [isDragging, setIsDragging] = useState(false);
+  const containerRef = React.useRef<HTMLDivElement>(null);
 
   const afterImage = "/images/comparison/after.JPG";
   const beforeImage = "/images/comparison/before.JPG";
@@ -12,6 +13,34 @@ export const ComparisonSlider: React.FC = () => {
     setSliderPosition(Number(e.target.value));
   };
 
+  const handlePointerDown = (e: React.PointerEvent<HTMLDivElement>) => {
+    setIsDragging(true);
+    updateSliderPosition(e.clientX);
+  };
+
+  const handlePointerMove = (e: React.PointerEvent<HTMLDivElement>) => {
+    if (isDragging) {
+      updateSliderPosition(e.clientX);
+    }
+  };
+
+  const handlePointerUp = () => {
+    setIsDragging(false);
+  };
+
+  const updateSliderPosition = (clientX: number) => {
+    if (containerRef.current) {
+      const rect = containerRef.current.getBoundingClientRect();
+      const x = Math.max(0, Math.min(clientX - rect.left, rect.width));
+      const percentage = (x / rect.width) * 100;
+      setSliderPosition(percentage);
+    }
+  };
+
+  // Global event listener to stop dragging if cursor leaves container (optional, but good for safety)
+  // For simplicity relative to 'mobile', pointer capture is usually enough or window listener. 
+  // We'll stick to simple container events for now or use setPointerCapture if possible.
+  
   return (
     <section className="pt-0 pb-24 bg-concrete relative">
       {/* Connector Gradient: Bridges Hero Image -> White */}
@@ -57,7 +86,10 @@ export const ComparisonSlider: React.FC = () => {
 
           <div className="w-full md:w-2/3 relative group">
             <FadeIn delay={200}>
-              <div className="relative w-full aspect-video rounded-xl overflow-hidden shadow-2xl border border-neutral-800">
+              <div 
+                ref={containerRef}
+                className="relative w-full aspect-video rounded-xl overflow-hidden shadow-2xl border border-neutral-800 touch-none"
+              >
 
                 {/* After Image (Background) */}
                 <img 
@@ -95,7 +127,7 @@ export const ComparisonSlider: React.FC = () => {
 
 
                 <div 
-                  className="absolute inset-y-0 w-1 bg-white cursor-ew-resize shadow-[0_0_20px_rgba(0,0,0,0.5)]"
+                  className="absolute inset-y-0 w-1 bg-white cursor-ew-resize shadow-[0_0_20px_rgba(0,0,0,0.5)] pointer-events-none"
                   style={{ left: `${sliderPosition}%` }}
                 >
                   <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-8 h-8 bg-red-600 rounded-full flex items-center justify-center border-2 border-white shadow-lg">
@@ -107,17 +139,27 @@ export const ComparisonSlider: React.FC = () => {
                   </div>
                 </div>
 
+                {/* Desktop Input (Hidden on Mobile) */}
                 <input
                   type="range"
                   min="0"
                   max="100"
                   value={sliderPosition}
                   onChange={handleSliderChange}
-                  className="absolute inset-0 w-full h-full opacity-0 cursor-ew-resize z-20"
+                  className="absolute inset-0 w-full h-full opacity-0 cursor-ew-resize z-20 hidden md:block"
+                />
+
+                {/* Mobile Touch Overlay (Visible only on Mobile) */}
+                <div
+                  className="absolute inset-0 z-30 block md:hidden"
+                  onPointerDown={handlePointerDown}
+                  onPointerMove={handlePointerMove}
+                  onPointerUp={handlePointerUp}
+                  onPointerLeave={handlePointerUp}
                 />
                 
-                <div className="absolute bottom-4 left-4 bg-black/70 px-3 py-1 text-xs font-bold text-white rounded">ANTES</div>
-                <div className="absolute bottom-4 right-4 bg-red-600/90 px-3 py-1 text-xs font-bold text-white rounded">DEPOIS</div>
+                <div className="absolute bottom-4 left-4 bg-black/70 px-3 py-1 text-xs font-bold text-white rounded pointer-events-none">ANTES</div>
+                <div className="absolute bottom-4 right-4 bg-red-600/90 px-3 py-1 text-xs font-bold text-white rounded pointer-events-none">DEPOIS</div>
               </div>
             </FadeIn>
           </div>
