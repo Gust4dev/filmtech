@@ -11,13 +11,15 @@ export const PORTFOLIO: PortfolioItem[] = [
   { 
     id: '8', 
     images: [
-      '/images/portfolio/porsche/gt3 (1).JPG',
-      '/images/portfolio/porsche/gt3 (3).JPG',
-      '/images/portfolio/porsche/gt3 (5).JPG',
-      '/images/portfolio/porsche/gt3 (7).JPG',
-      '/images/portfolio/porsche/gt3 (6).JPG',
-      '/images/portfolio/porsche/gt3 (8).JPG',
-      '/images/portfolio/porsche/gt3 (9).JPG',
+      '/images/portfolio/porsche/gt3-3.JPG',
+      '/images/portfolio/porsche/gt3-1.JPG',
+      '/images/portfolio/porsche/gt3-2.JPG',
+      '/images/portfolio/porsche/gt3-6.JPG',
+      '/images/portfolio/porsche/gt3-7.JPG',
+      '/images/portfolio/porsche/gt3-4.JPG',
+      '/images/portfolio/porsche/gt3-8.JPG',
+      '/images/portfolio/porsche/gt3-5.JPG',
+      '/images/portfolio/porsche/gt3(16).JPG',
     ], 
     title: 'Porsche 911 GT3 RS - Envelopamento', 
     instagramLink: '#' 
