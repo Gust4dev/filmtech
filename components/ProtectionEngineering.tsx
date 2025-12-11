@@ -89,12 +89,29 @@ export const ProtectionEngineering: React.FC = () => {
                     </div>
                   </div>
                 </FadeIn>
-                
-                {/* 3. BASF */}
+
+                {/* 3. QUAD */}
                 <FadeIn delay={600}>
                   <div className="flex flex-col sm:flex-row gap-5 items-start">
                     <div className="w-16 h-16 bg-orange-50 border border-orange-100 rounded-xl flex items-center justify-center shrink-0 shadow-sm">
                       <Medal size={32} className="text-orange-700 fill-orange-400" />
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-black uppercase text-gray-900 tracking-wide mb-2">
+                        QUAD-FILM
+                      </h3>
+                      <p className="text-base text-stone-600 leading-relaxed">
+                         165 micras / homologado pela Lamborghini / 7 anos de garantia / Auto-regenerativo
+                      </p>
+                    </div>
+                  </div>
+                </FadeIn>
+                
+                {/* 4. Ironshield */}
+                <FadeIn delay={600}>
+                  <div className="flex flex-col sm:flex-row gap-5 items-start">
+                    <div className="w-16 h-16 bg-orange-50 border border-orange-100 rounded-xl flex items-center justify-center shrink-0 shadow-sm">
+                      <ShieldCheck size={32} className="text-orange-700 fill-orange-400" />
                     </div>
                     <div>
                       <h3 className="text-xl font-black uppercase text-gray-900 tracking-wide mb-2">

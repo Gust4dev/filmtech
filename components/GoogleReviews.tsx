@@ -73,7 +73,7 @@ export const GoogleReviews: React.FC = () => {
               Já é nosso cliente?
             </p>
             <a 
-                href="https://www.google.com/search?q=Filmtech&ie=UTF-8#lrd=0x935ef1b7d16614d7:0xcf34d9754dbc1c2f,3,,,," 
+                href="https://www.google.com/search?q=google+filmtech+luxury" 
                 target="_blank" 
                 rel="noreferrer"
                 className="inline-flex items-center gap-2 px-8 py-4 bg-red-600 text-white font-bold text-sm tracking-widest uppercase hover:bg-red-700 transition-all duration-300 shadow-xl shadow-red-600/20"
