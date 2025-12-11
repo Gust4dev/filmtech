@@ -15,13 +15,20 @@ export const Navbar: React.FC = () => {
   }, []);
 
   const navLinks = [
-    { name: 'Serviços', id: 'servicos' },
     { name: 'Resultados', id: 'portfolio' },
+    { name: 'PPFs', id: 'ppfs' },
     { name: 'Contato', id: 'footer' },
   ];
 
   const scrollTo = (id: string) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+    let targetId = id;
+    
+    // Para PPFs, usa IDs diferentes baseado no tamanho da tela
+    if (id === 'ppfs') {
+      targetId = window.innerWidth < 768 ? 'ppfs-mobile' : 'ppfs-desktop';
+    }
+    
+    document.getElementById(targetId)?.scrollIntoView({ behavior: 'smooth' });
     setMobileMenuOpen(false);
   };
 

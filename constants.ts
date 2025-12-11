@@ -21,7 +21,7 @@ export const PORTFOLIO: PortfolioItem[] = [
       '/images/portfolio/porsche/gt3-5.JPG',
       '/images/portfolio/porsche/gt3(16).JPG',
     ], 
-    title: 'Porsche 911 GT3 RS - Envelopamento', 
+    title: 'Porsche 911 GT3 RS - Envelopamento + PPF FULL', 
     instagramLink: '#' 
   },
   { 
