@@ -64,7 +64,7 @@ export const ProtectionEngineering: React.FC = () => {
                     </div>
                     <div>
                       <h3 className="text-xl font-black uppercase text-gray-900 tracking-wide mb-2">
-                         CarPro - Immortal
+                         <span className="text-red-600">Immortal</span> - CarPro
                       </h3>
                       <p className="text-base text-stone-600 leading-relaxed">
                         200 micras / 10 anos de garantia / Auto-regenerativo.
