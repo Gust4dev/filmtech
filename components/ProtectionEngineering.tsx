@@ -89,7 +89,7 @@ export const ProtectionEngineering: React.FC = () => {
                     </div>
                   </div>
                 </FadeIn>
-
+                
                 {/* 3. BASF */}
                 <FadeIn delay={600}>
                   <div className="flex flex-col sm:flex-row gap-5 items-start">
@@ -98,7 +98,7 @@ export const ProtectionEngineering: React.FC = () => {
                     </div>
                     <div>
                       <h3 className="text-xl font-black uppercase text-gray-900 tracking-wide mb-2">
-                        Basf - film
+                        Ironshield - film
                       </h3>
                       <p className="text-base text-stone-600 leading-relaxed">
                          165 micras / 5 anos de garantia / Regenerativo.
