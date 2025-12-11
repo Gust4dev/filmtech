@@ -41,11 +41,11 @@ export const ProtectionEngineering: React.FC = () => {
             <div className="space-y-12 flex flex-col justify-center py-4">
               <FadeIn delay={200}>
                 <div>
-                  <h2 id="ppfs-desktop" className="text-4xl lg:text-5xl font-bold text-dark-lead mb-6 brand-font leading-tight">
+                  <h2 id="PPF-desktop" className="text-4xl lg:text-5xl font-bold text-dark-lead mb-6 brand-font leading-tight">
                     TECNOLOGIA DE <br/>
                     <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-700 to-red-900">PROTEÇÃO INVISÍVEL</span>
                   </h2>
-                  <p id="ppfs-mobile" className="text-xl text-stone-600 font-light leading-relaxed">
+                  <p id="PPF-mobile" className="text-xl text-stone-600 font-light leading-relaxed">
                     "Não aplicamos apenas uma película. Esculpimos uma segunda pele no seu veículo."
                   </p>
                 </div>

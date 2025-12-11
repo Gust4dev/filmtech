@@ -16,7 +16,7 @@ export const Navbar: React.FC = () => {
 
   const navLinks = [
     { name: 'Resultados', id: 'portfolio' },
-    { name: 'PPFs', id: 'ppfs' },
+    { name: 'PPF', id: 'PPF' },
     { name: 'Contato', id: 'footer' },
   ];
 
@@ -24,8 +24,8 @@ export const Navbar: React.FC = () => {
     let targetId = id;
     
     // Para PPFs, usa IDs diferentes baseado no tamanho da tela
-    if (id === 'ppfs') {
-      targetId = window.innerWidth < 768 ? 'ppfs-mobile' : 'ppfs-desktop';
+    if (id === 'PPF') {
+      targetId = window.innerWidth < 768 ? 'PPF-mobile' : 'PPF-desktop';
     }
     
     document.getElementById(targetId)?.scrollIntoView({ behavior: 'smooth' });
