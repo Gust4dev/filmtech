@@ -1,4 +1,5 @@
 import React, { useState, useEffect, Suspense } from 'react';
+import { Analytics } from '@vercel/analytics/react';
 
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
@@ -47,6 +48,7 @@ const App: React.FC = () => {
       <Suspense fallback={null}>
         <Footer />
       </Suspense>
+      <Analytics />
     </div>
   );
 };
