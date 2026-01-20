@@ -1,9 +1,5 @@
-<<<<<<< HEAD
 import React, { useState, useEffect, Suspense } from "react";
-=======
-import React, { useState, useEffect, Suspense } from 'react';
-import { Analytics } from '@vercel/analytics/react';
->>>>>>> 36464a6e773711fc152f64260568d45bcecd6fe0
+import { Analytics } from "@vercel/analytics/react";
 
 import { Navbar } from "./components/Navbar";
 import { Hero } from "./components/Hero";
